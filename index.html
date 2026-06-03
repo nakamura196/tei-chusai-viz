@@ -14,7 +14,7 @@
       同じデータから、人物の関係・登場・本文対応を別の角度で可視化します。
     </p>
     <nav id="tabs"></nav>
-    <div id="status"></div>
+    <div id="status" role="status" aria-live="polite"></div>
   </header>
 
   <main id="view"></main>
@@ -28,6 +28,12 @@
       公式ビューワ:
       <a href="https://chusaiweb-murata.netlify.app/" target="_blank" rel="noopener">TEI抽斎年譜ビューワ</a>。
       本サイトは独立した二次利用例で、データを改変せず読み込んでいます。
+    </p>
+    <p>
+      <strong>注記</strong>：対訳の現代語訳は AI による下書き（要校閲）です。可視化は探索的な近似で、
+      共起・登場年・年次割当の解釈上の限界は各ビューの「読み取りの注意」を参照してください。
+      原データに由来する既知の課題（和暦→西暦の一部誤り、人物IDの表記ゆれ、対訳アンカーの欠落など）は
+      <a href="https://github.com/nakamura196/tei-chusai-viz#データに関する注記" target="_blank" rel="noopener">README のデータ注記</a>に整理しています。
     </p>
   </footer>
 

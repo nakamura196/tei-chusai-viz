@@ -22,7 +22,9 @@ export function renderTimeline(container, model, topN = 25) {
   const x = d3.scaleLinear().domain([minY, maxY]).range([0, innerW]);
 
   const svg = d3.select(container).append('svg')
-    .attr('width', width).attr('height', height);
+    .attr('width', width).attr('height', height)
+    .attr('role', 'img')
+    .attr('aria-label', `人物登場タイムライン。上位${people.length}名が${minY}〜${maxY}年のどの年に登場するかを表示。`);
   const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
 
   // 上下の年軸（10年刻みの目盛り）
@@ -52,14 +54,19 @@ export function renderTimeline(container, model, topN = 25) {
 
   rows.each(function (d) {
     const ys = [...(model.personYears.get(d.id) || [])].sort((a, b) => a - b);
+    const color = !d.person ? '#999' : d.person.viaf ? '#b5651d' : '#7a9eb1';
+    const viaf = d.person && d.person.viaf;
     d3.select(this).selectAll('circle').data(ys).join('circle')
       .attr('cx', (yr) => x(yr)).attr('cy', rowH / 2).attr('r', 4)
-      .attr('fill', d.person && d.person.viaf ? '#b5651d' : '#7a9eb1')
+      // VIAF同定済=塗り、その他=中空リング（色＋塗り分けで冗長化）
+      .attr('fill', viaf ? color : '#fff')
+      .attr('stroke', color).attr('stroke-width', 1.5)
       .append('title').text((yr) => `${d.name} — ${model.yearLabel.get(yr) || yr}`);
   });
 
   const legend = document.createElement('p');
   legend.className = 'legend';
-  legend.textContent = `登場年数 上位 ${people.length} 名。横軸は西暦（抽斎 ${minY}–${maxY} 年）。各点＝その年に年譜へ登場。`;
+  legend.innerHTML = `登場年数 上位 ${people.length} 名。横軸は西暦（抽斎 ${minY}–${maxY} 年）。`
+    + `各点＝その年の年譜記事で言及。塗り=VIAF同定済み、中空=その他。`;
   container.appendChild(legend);
 }

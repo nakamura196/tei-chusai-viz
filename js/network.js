@@ -2,6 +2,7 @@
 // d3 はグローバル（vendor/d3）を利用。
 
 export function renderNetwork(container, model) {
+  if (container.__sim) container.__sim.stop(); // 旧シミュレーションを止めてリーク防止
   container.innerHTML = '';
   const width = container.clientWidth || 900;
   const height = 640;
@@ -16,7 +17,9 @@ export function renderNetwork(container, model) {
 
   const svg = d3.select(container).append('svg')
     .attr('width', width).attr('height', height)
-    .attr('viewBox', [0, 0, width, height]);
+    .attr('viewBox', [0, 0, width, height])
+    .attr('role', 'img')
+    .attr('aria-label', `人物共起ネットワーク図。人物${nodes.length}名、共起${links.length}関係を力学配置で表示。詳細は下のテキストを参照。`);
 
   const g = svg.append('g');
   svg.call(d3.zoom().scaleExtent([0.2, 5]).on('zoom', (e) => g.attr('transform', e.transform)));
@@ -29,13 +32,19 @@ export function renderNetwork(container, model) {
 
   node.append('circle')
     .attr('r', (d) => r(d.count))
-    .attr('fill', (d) => (d.person && d.person.viaf ? '#b5651d' : '#7a9eb1'))
-    .attr('stroke', '#fff').attr('stroke-width', 1.2);
+    // 未同定（listPerson未登録）=灰色＋破線、VIAF同定済=オレンジ、その他=青灰。色＋線種で冗長化。
+    .attr('fill', (d) => (!d.person ? '#d9d4cc' : d.person.viaf ? '#b5651d' : '#7a9eb1'))
+    .attr('stroke', (d) => (!d.person ? '#999' : '#fff'))
+    .attr('stroke-width', (d) => (!d.person ? 1.5 : 1.2))
+    .attr('stroke-dasharray', (d) => (!d.person ? '3,2' : null));
 
   node.append('text')
     .text((d) => d.name)
     .attr('x', (d) => r(d.count) + 3).attr('y', 4)
     .attr('font-size', 11).attr('fill', '#333')
+    // 白いハロー（縁取り）で重なっても読めるように
+    .attr('stroke', '#fbfaf7').attr('stroke-width', 3).attr('paint-order', 'stroke')
+    .attr('stroke-linejoin', 'round')
     .style('display', (d) => (d.count >= 3 ? null : 'none')); // 主要人物のみ常時ラベル
 
   node.append('title').text((d) => {
@@ -49,6 +58,7 @@ export function renderNetwork(container, model) {
     .force('charge', d3.forceManyBody().strength(-120))
     .force('center', d3.forceCenter(width / 2, height / 2))
     .force('collide', d3.forceCollide().radius((d) => r(d.count) + 6));
+  container.__sim = sim; // resize 等の再描画時に停止できるよう保持
 
   sim.on('tick', () => {
     link.attr('x1', (d) => d.source.x).attr('y1', (d) => d.source.y)
@@ -65,7 +75,8 @@ export function renderNetwork(container, model) {
   const legend = document.createElement('p');
   legend.className = 'legend';
   legend.innerHTML = `人物 ${nodes.length} 名 / 共起 ${links.length} 関係。`
-    + `円の大きさ＝登場年数、<span style="color:#b5651d">●</span> VIAF 同定済み、`
-    + `<span style="color:#7a9eb1">●</span> その他。ドラッグ／ズーム可。`;
+    + `円の大きさ＝登場年数、<span style="color:#b5651d">●</span> VIAF同定済み、`
+    + `<span style="color:#7a9eb1">●</span> その他、<span style="color:#999">◌</span> 未同定（破線）。`
+    + `ノードにカーソルを合わせると詳細、ドラッグ／ズーム可。`;
   container.appendChild(legend);
 }

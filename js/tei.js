@@ -76,46 +76,73 @@ export function renderInline(node) {
 
 // 2 つの空 <anchor> の間（同一文書順）にある内容を HTML 化して取り出す。
 // matchStart/matchEnd は anchor 要素を判定する述語。
+// 文書ルートから全ノードを文書順に走査し、start で取り込み開始・end で確実に停止する
+// （currentNode を動かして部分木をスキップする方式は end を飛び越える事故があったため不採用）。
+// 同一キーが複数区間に出現する場合（小説側に複数の対応箇所がある等）に備え、
+// 一致する _s/_e を文書順に「すべて」収集し、i 番目どうしを対にして各区間を返す。
 function extractBetween(doc, matchStart, matchEnd) {
   const anchors = tags(doc, 'anchor');
-  const start = anchors.find(matchStart);
-  const end = anchors.find(matchEnd);
-  if (!start || !end) return null;
+  const starts = anchors.filter(matchStart);
+  const ends = anchors.filter(matchEnd);
+  const out = [];
+  const n = Math.min(starts.length, ends.length);
+  for (let i = 0; i < n; i++) {
+    const frag = spanBetween(doc, starts[i], ends[i]);
+    if (frag) out.push(frag);
+  }
+  return out; // 区間ごとの HTML 配列（無ければ []）
+}
 
-  // start の直後から end の直前までを文書順に走査して内容を集める。
-  let html = '';
+// 2 つの空 <anchor>（start/end）の間の内容を HTML 化する。
+function spanBetween(doc, start, end) {
   const walker = doc.createTreeWalker(doc, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT);
-  let inside = false;
-  walker.currentNode = start;
+  let html = '', started = false;
   while (walker.nextNode()) {
     const n = walker.currentNode;
+    if (n === start) { started = true; continue; }
     if (n === end) break;
-    // start/end の子孫に入らないよう、テキストノードだけを拾い、ルビは要素単位で扱う。
-    if (n.nodeType === Node.ELEMENT_NODE) {
+    if (!started) continue;
+    if (n.nodeType === Node.TEXT_NODE) {
+      // ルビ内テキストは ruby 要素側でまとめて扱うため、ここでは二重に拾わない。
+      const pn = n.parentNode && n.parentNode.localName;
+      if (pn === 'rb' || pn === 'rt' || pn === 'ruby') continue;
+      html += esc(n.nodeValue.replace(/\s+/g, ''));
+    } else if (n.nodeType === Node.ELEMENT_NODE) {
       if (n.localName === 'ruby') {
         const rb = plain(tags(n, 'rb')[0] || n);
         const rt = plain(tags(n, 'rt')[0]);
         html += `<ruby>${esc(rb)}<rt>${esc(rt)}</rt></ruby>`;
-        // ルビ内テキストは TreeWalker が後で再訪するのでスキップフラグを立てる
-        walker.currentNode = lastDescendant(n) || n;
       } else if (n.localName === 'lb') {
         html += '<br>';
-      } else if (n.localName === 'note') {
-        html += `<span class="inline-note">（${renderInline(n)}）</span>`;
-        walker.currentNode = lastDescendant(n) || n;
       }
-    } else if (n.nodeType === Node.TEXT_NODE) {
-      html += esc(n.nodeValue.replace(/\s+/g, ''));
+      // その他の要素（persName/date/note など）はテキストノード訪問時に拾われる。
     }
-    inside = true;
   }
-  return inside ? html : '';
+  return html;
 }
 
-function lastDescendant(node) {
-  let n = node;
-  while (n.lastChild) n = n.lastChild;
-  return n === node ? null : n;
+// 人物 ID の表記ゆれを正規化する別名表（原データは改変せず、表示側で名寄せ）。
+// レビューで同一人物と確認できたもののみ。岩田百合は同定保留（別名にしない）。
+const PERSON_ALIAS = {
+  '尾嶋定子': '尾島定子',
+  '尾島定': '尾島定子',
+  '山内五百': '山内五百子',
+  '矢鳥玄碩': '矢島玄碩',
+  '恒善': '渋江恒善',
+};
+
+// 「cn03_02」⇔「cn03_2」のようなゼロ詰め表記ゆれを吸収するためのキー候補。
+function keyVariants(key) {
+  const m = key.match(/^cn(\d+)_(\d+)$/);
+  if (!m) return [key];
+  const a = m[1], b = m[2];
+  const set = new Set([
+    `cn${a}_${b}`,
+    `cn${parseInt(a, 10)}_${parseInt(b, 10)}`,
+    `cn${a}_${parseInt(b, 10)}`,
+    `cn${parseInt(a, 10)}_${b}`,
+  ]);
+  return [...set];
 }
 
 // --- データモデル構築 -------------------------------------------------------
@@ -161,19 +188,25 @@ export function buildModel(chronDoc, aozoraDoc) {
     if (head && head !== '年譜' && !yearLabel.has(year)) yearLabel.set(year, `${head}（${year}）`);
   }
 
-  // 3) 本文の persName 参照を年次へ割り当て、共起と登場年を集計
+  // 3) 本文の persName 参照を年次へ割り当て、共起と登場年を集計。
+  //    persName は文書順で得られるため、年次 div に内包されない body 直下の孤立 <note>
+  //    内の参照は、直前に解決した年次を継承させて取りこぼしを防ぐ。
   const personYears = new Map();          // personId -> Set<year>
   const byYear = new Map();               // year -> Set<personId>
+  let lastYear = null;
   for (const ref0 of tags(body, 'persName')) {
-    const pid = ref(ref0.getAttribute('corresp'));
-    if (!pid) continue;
+    const raw = ref(ref0.getAttribute('corresp'));
+    if (!raw) continue;
+    const pid = PERSON_ALIAS[raw] || raw; // 表記ゆれを正規化
     // 最寄りの年次 div を探す
     let div = ref0.parentNode, year = null;
     while (div && div !== body) {
       if (yearOfDiv.has(div)) { year = yearOfDiv.get(div); break; }
       div = div.parentNode;
     }
+    if (year == null) year = lastYear;    // 孤立 note は直前の年次を継承
     if (year == null) continue;
+    lastYear = year;
     if (!personYears.has(pid)) personYears.set(pid, new Set());
     personYears.get(pid).add(year);
     if (!byYear.has(year)) byYear.set(year, new Set());
@@ -204,6 +237,9 @@ export function buildModel(chronDoc, aozoraDoc) {
     const [a, b] = k.split('|');
     if (present.has(a) && present.has(b)) links.push({ source: a, target: b, weight: w });
   }
+  // listPerson に未登録のまま残った被参照 ID（名寄せ後の残り。例: 岩田百合）。
+  const unidentified = nodes.filter((n) => !persons.has(n.id)).map((n) => n.id);
+  if (unidentified.length) console.warn('listPerson 未登録の被参照ID:', unidentified);
 
   // 4) 対訳ペア（chuusainenpu: xml:id=cnK_s/_e、aozora: corresp=#cnK_s/_e）
   const keys = new Set();
@@ -213,23 +249,40 @@ export function buildModel(chronDoc, aozoraDoc) {
     if (m) keys.add(m[1]);
   }
   const parallels = [];
+  let withNovel = 0;
   for (const key of [...keys].sort()) {
-    const chron = extractBetween(chronDoc,
+    const chronFrags = extractBetween(chronDoc,
       (a) => xmlId(a) === `${key}_s`, (a) => xmlId(a) === `${key}_e`);
-    const novel = extractBetween(aozoraDoc,
-      (a) => ref(a.getAttribute('corresp')) === `${key}_s`,
-      (a) => ref(a.getAttribute('corresp')) === `${key}_e`);
-    if (novel != null && novel !== '') parallels.push({ key, chron: chron || '', novel });
+    // 小説側はゼロ詰め表記ゆれを吸収して探し、複数区間があればすべて拾う。
+    let novelFrags = [];
+    for (const v of keyVariants(key)) {
+      const f = extractBetween(aozoraDoc,
+        (a) => ref(a.getAttribute('corresp')) === `${v}_s`,
+        (a) => ref(a.getAttribute('corresp')) === `${v}_e`);
+      if (f.length) { novelFrags = f; break; }
+    }
+    const novel = novelFrags.join(' <span class="gap">〔…〕</span> ');
+    if (novel) withNovel++;
+    // 小説側が無くても年譜本文があれば「年譜のみ」行として残す（無言の脱落を防ぐ）。
+    parallels.push({
+      key,
+      chron: chronFrags.join(' <span class="gap">〔…〕</span> '),
+      novel,
+      novelCount: novelFrags.length,
+      chronOnly: !novel,
+    });
   }
 
   return {
     persons,
     nodes,
     links,
+    unidentified,
     personYears,
     years: [...byYear.keys()].sort((a, b) => a - b),
     yearLabel,
     byYear,
     parallels,
+    parallelStats: { total: parallels.length, withNovel, chronOnly: parallels.length - withNovel },
   };
 }
