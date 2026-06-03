@@ -1,0 +1,62 @@
+:root {
+  --accent: #b5651d;
+  --ink: #2b2b2b;
+  --muted: #777;
+  --line: #e3e3e3;
+  --bg: #fbfaf7;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.7;
+}
+header, main, footer { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+header { padding-top: 24px; }
+h1 { font-size: 1.6rem; margin: 0 0 4px; }
+.subtitle { margin: 0 0 16px; color: #444; font-size: 0.95rem; }
+
+nav#tabs { display: flex; gap: 6px; flex-wrap: wrap; border-bottom: 2px solid var(--line); }
+nav#tabs button {
+  font: inherit; font-size: 0.95rem; padding: 8px 16px; cursor: pointer;
+  background: transparent; border: none; color: var(--muted);
+  border-bottom: 3px solid transparent; margin-bottom: -2px;
+}
+nav#tabs button:hover { color: var(--ink); }
+nav#tabs button.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+
+#status { margin: 12px 0; font-size: 0.95rem; color: #555; }
+.error { color: #b00020; }
+
+main { min-height: 60vh; padding-bottom: 40px; }
+.panel { margin-top: 8px; }
+.legend { font-size: 0.85rem; color: var(--muted); margin: 10px 0 0; }
+
+svg { max-width: 100%; height: auto; }
+svg text { font-family: "Hiragino Kaku Gothic ProN", sans-serif; }
+
+/* 対訳ビュー */
+.parallel { display: flex; flex-direction: column; gap: 0; margin-top: 12px; }
+.parallel-row {
+  position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  padding: 14px 0; border-bottom: 1px solid var(--line);
+}
+.parallel-head { font-weight: 600; color: var(--accent); border-bottom: 2px solid var(--accent); }
+.parallel .cell { font-size: 1rem; }
+.parallel .cell.novel { color: #333; }
+.parallel .muted { color: #aaa; }
+.cn-key {
+  position: absolute; top: 2px; right: 0; font-size: 0.7rem; color: #bbb;
+  font-family: monospace;
+}
+.inline-note { color: var(--accent); font-size: 0.85em; }
+ruby rt { font-size: 0.6em; color: var(--muted); }
+
+footer { border-top: 1px solid var(--line); padding: 16px 20px 40px; font-size: 0.82rem; color: var(--muted); }
+footer a { color: var(--accent); }
+
+@media (max-width: 680px) {
+  .parallel-row { grid-template-columns: 1fr; gap: 8px; }
+}

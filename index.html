@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>抽斎年譜 TEI ビジュアライザ（二次利用例）</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>抽斎年譜 TEI ビジュアライザ</h1>
+    <p class="subtitle">
+      若手図書館員DH勉強会『抽斎年譜』TEI/XML（CC BY 4.0）の<strong>二次利用例</strong>。
+      同じデータから、人物の関係・登場・本文対応を別の角度で可視化します。
+    </p>
+    <nav id="tabs"></nav>
+    <div id="status"></div>
+  </header>
+
+  <main id="view"></main>
+
+  <footer>
+    <p>
+      データ出典:
+      <a href="https://github.com/dhlibrarianstudygroup/tei_chuusainenpu_public" target="_blank" rel="noopener">
+        若手図書館員DH勉強会『抽斎年譜』TEI/XML</a>
+      （<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>）。
+      公式ビューワ:
+      <a href="https://chusaiweb-murata.netlify.app/" target="_blank" rel="noopener">TEI抽斎年譜ビューワ</a>。
+      本サイトは独立した二次利用例で、データを改変せず読み込んでいます。
+    </p>
+  </footer>
+
+  <!-- 可視化ライブラリは vendoring（実行時 CDN 依存なし） -->
+  <script src="vendor/d3.v7.9.0.min.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

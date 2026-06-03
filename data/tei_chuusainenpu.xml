@@ -1,0 +1,1276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="tei_all.rng" schematypens="http://relaxng.org/ns/structure/1.0" type="application/xml"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>抽齋年譜</title>
+            <author> [澁江保]</author>            
+            <respStmt>
+               <resp>TEI Encoding</resp>
+               <orgName><ref target="https://dhlibrarianstudygroup.github.io/website/docs/about/">若手図書館員DH勉強会</ref></orgName>
+               <persName>市太佐知</persName>
+			      <persName>小屋敷瑛美</persName>
+               <persName>鈴置怜子</persName>
+               <persName>西口真梨奈</persName>
+               <persName>福嶋彩乃</persName>
+               <persName>星合耀子</persName>
+               <persName>村田祐菜</persName>
+               <persName>吉村雄太</persName>
+            </respStmt>
+         </titleStmt>
+
+         <publicationStmt>
+            <publisher>若手図書館員DH勉強会</publisher>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</licence>
+            </availability>
+         </publicationStmt>
+
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <institution>東京大学</institution>
+                  <repository ref="https://da.dl.itc.u-tokyo.ac.jp/portal/collection/ogai">東京大学総合図書館鷗外文庫書入本画像データベース</repository>
+                  <idno type="請求記号">鴎H20:511</idno>
+               </msIdentifier>
+               <msContents>
+                  <summary>森鷗外の小説『渋江抽斎』が依拠されたとされる資料。渋江抽斎の息子渋江保による執筆。</summary>
+               </msContents>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+
+      <encodingDesc>
+         <projectDesc>
+            <p>若手図書館員DH勉強会では「図書館員はどのような形でDHに関わることができるのか」「従来の図書資料やメタデータに加えて、研究利用できるデータを提供するにはどうすればいいのか」という問いのもと、複数の機関から職員が集まってDHについて学んでいます。今回のプロジェクトでは所蔵資料の活用ならびにDHの実践を目的とし、東京大学総合図書館蔵『抽斎年譜』をTEIマークアップの対象としました。2026年4月に初稿のTEI/XMLファイルとテストサイトを公開しており、随時更新する予定です。</p>
+         </projectDesc>
+
+         <editorialDecl>
+            <normalization>
+            <p>テキストはNDL古典籍OCR-Liteで処理したものを人手で修正した。</p>
+            </normalization>
+            <segmentation>
+            <p>半丁ごとに<gi>pb</gi>タグを付与した。</p>
+            <p>当該資料は編年体で書かれており、年次ごとに<gi>div</gi>タグで囲った。各年次冒頭に記載されている年代と抽斎の年齢には<gi>head</gi>タグを付与した。</p>
+            </segmentation>
+            <p>本文は<gi>p</gi>タグで、注釈あるいは書き入れは<gi>note</gi>タグでマークアップした。注釈あるいは書き入れのうち、朱筆の箇所は<gi>note</gi>タグの属性を@style="color:red"とし、朱筆であることを示した。</p>
+            <p>テキストのインデントのパターンは<gi>tagsDecl</gi>にまとめ、各タグの@style属性で記述した。</p>
+            <p>注記が欄外にある場合は、<gi>note</gi>タグの中に@place属性を記述し、注記の位置を示した。</p>
+            <p>本文と注記の対応については、本文に@xml:id属性を与え、対応する注記に@corresp属性で参照させた。xml:idは「noteコマ番号_連番」というルールで付与している。なお、コマ番号は東京大学総合図書館鷗外文庫書入本画像データベースの画像コマ番号である。(例:note03_01)</p>
+            <p>時間情報は<gi>date</gi>タグでマークアップし、@when属性に西暦を、@when-custom属性に和暦の時間情報を記述した。</p>
+            <p>人物情報は<gi>listPerson</gi>でリスト化、人物ごとに<gi>person</gi>タグでまとめ、@xml:id属性を付与した。本文中の人物名は<gi>persName</gi>タグでマークアップし、@corresp属性で対応する@xml:idの属性値を参照させた。</p>
+            <p>割注は<gi>note</gi>でマークアップし、属性を@rend="割注"とした。割注内の改行箇所には空白タグ<gi>milestone</gi>を挿入し、属性を@unit="wbr"とした。</p>
+            <p>この『抽斎年譜』のTEI/XMLファイル(tei_chuusainenpu.xml)とは別に、小説『渋江抽斎』のTEI/XMLファイル(shibuechusai_aozora.xml)があり、両者の対応箇所をマークアップしている。『抽斎年譜』では対応する文章の開始地点と終了地点に空白タグ<gi>anchor</gi>を挿入し、属性をぞれぞれ@xml:id="cnコマ数_連番_s"、@xml:id="cnコマ数_連番_e"とした。『渋江抽斎』でも対応する文章の開始地点と終了地点に空タグ<gi>anchor</gi>を挿入し、@corresp属性で対応する@xml:idの属性値を参照させた。両者の対応関係は『日本近代文学大系 12』（角川書店,1974年）をもとにしている。</p>
+            <p>書き入れを施した人物の情報は<gi>profileDesc</gi>内の<gi>handNotes</gi>に記述し、<gi>handNote</gi>に@xml:id属性を付与した。当該資料には森鷗外による書き入れがある。これを<gi>note</gi>タグで囲み、属性を@hand="#ougai"として、@xml:idの属性値を参照させた。なお、鷗外の書き入れについては松本明知『森鷗外「渋江抽斎」基礎資料』(日本医史学会,1988年)の解題をもとにマークアップしている。</p>
+         </editorialDecl>
+
+        <tagsDecl>
+            <rendition xml:id="m1">margin-top: 1em;</rendition>
+            <rendition xml:id="m2">margin-top: 2em;</rendition>
+            <rendition xml:id="m3">margin-top: 3em;</rendition>
+            <rendition xml:id="m9">margin-top: 9em;</rendition>
+            <rendition xml:id="m10">margin-top: 10em;</rendition>
+            <rendition xml:id="m11">margin-top: 11em;</rendition>
+        </tagsDecl>
+    </encodingDesc>
+
+      <profileDesc><handNotes> 
+            <handNote xml:id="ougai">森鷗外</handNote> 
+      </handNotes></profileDesc>
+  </teiHeader>
+  <facsimile sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/manifest">
+	<surface xml:id="ut00" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p1">
+		<label>[1]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6979"/>
+         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_000"/>
+		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_001"/>
+	</surface>
+	<surface xml:id="ut01" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p2">
+		<label>[2]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6980"/>
+         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_002"/>
+         	<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_003"/>
+	</surface>
+	<surface xml:id="ut02" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p3">
+		<label>[3]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6981"/>
+        	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_004"/>
+		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_005"/>
+	</surface>
+	<surface xml:id="ut03" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p4">
+		<label>[4]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6982"/>
+        	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_006"/>
+		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_007"/>
+	</surface>
+	<surface xml:id="ut04" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p5">
+		<label>[5]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6983"/>
+        	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_008"/>
+		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_009"/>
+	</surface>
+	<surface xml:id="ut05" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p6">
+		<label>[6]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6984"/>
+        	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_010"/>
+		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_011"/>
+	</surface>
+	<surface xml:id="ut06" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p7">
+		<label>[7]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6985"/>
+        	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_012"/>
+		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_013"/>
+	</surface>
+	<surface xml:id="ut07" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p8">
+		<label>[8]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6986"/>
+        	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_014"/>
+		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_015"/>
+	</surface>
+	<surface xml:id="ut08" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p9">
+		<label>[9]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6987"/>
+        	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_016"/>
+		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_017"/>
+	</surface>
+	<surface xml:id="ut09" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p10">
+		<label>[10]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6988"/>
+        	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_018"/>
+		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_019"/>
+	</surface>
+	<surface xml:id="ut10" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p11">
+		<label>[11]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6989"/>
+        	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_020"/>
+		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_021"/>
+	</surface>
+	<surface xml:id="ut11" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p12">
+		<label>[12]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6990"/>
+        	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_022"/>
+		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_023"/>
+	</surface>
+	<surface xml:id="ut12" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p13">
+		<label>[13]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6991"/>
+        	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_024"/>
+		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_025"/>
+	</surface>
+	<surface xml:id="ut13" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p14">
+		<label>[14]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6992"/>
+        	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_026"/>
+		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_027"/>
+	</surface>
+	<surface xml:id="ut14" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p15">
+		<label>[15]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6993"/>
+        	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_028"/>
+		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_029"/>
+	</surface>
+	<surface xml:id="ut15" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p16">
+		<label>[16]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6994"/>
+        	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_030"/>
+		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_031"/>
+	</surface>
+	<surface xml:id="ut16" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p17">
+		<label>[17]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6995"/>
+        	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_032"/>
+		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_033"/>
+	</surface>
+	<surface xml:id="ut17" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p18">
+		<label>[18]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6996"/>
+        	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_034"/>
+		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_035"/>
+	</surface>
+	<surface xml:id="ut18" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p19">
+		<label>[19]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6997"/>
+        	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_036"/>
+		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_037"/>
+	</surface>
+	<surface xml:id="ut19" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p20">
+		<label>[20]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6998"/>
+        	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_038"/>
+		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_039"/>
+	</surface>
+	<surface xml:id="ut20" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p21">
+		<label>[21]</label>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6999"/>
+        	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_040"/>
+		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_041"/>
+	</surface>
+  </facsimile>
+  <text>
+      <body  style="writing-mode:vertical-rl">
+        <pb n="3" corresp="#zone_005" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6981/0,0,2128,3308/full/0/default.jpg"/>
+        <head>年譜</head>
+        <div><head xml:id="note03_01">一歳</head>
+        <p style="#m1"><anchor xml:id="cn03_01_s"/><date when="1805-12-28" when-custom="文化2年11月8日">十一月八日</date>、江戸神田辨慶橋に生る<note rend="割注" style="color:red">時に父<persName corresp="#渋江允成">允成</persName>四十二歳。<milestone unit="wbr"/>母<persName corresp="#岩田縫子"><ruby><rb>縫</rb><rt>ヌヒ</rt></ruby>子</persName>三十一歳。</note><anchor xml:id="cn03_01_e"/></p>
+        <p style="#m3" xml:id="note03_02"><lb/>（當時父<persName corresp="#渋江允成"><ruby><rb>允成</rb><rt>タゞシゲ</rt></ruby></persName>は、津軽藩、在江戸学館の儒学、
+        <lb/>及ひ醫学の教授にして、且つ侍醫たりし
+        <lb/>なり。）</p>
+        <p style="m2" xml:id="note03_03">藩主<persName corresp="#津軽寧親">寧親公</persName>の父<persName corresp="#津軽信明">信明公</persName>の未亡人<persName corresp="#眞壽院">眞壽院</persName>は、
+        <lb/>甚た〳〵<persName corresp="#渋江抽斎">抽斎</persName><note rend="割注">其頃<persName corresp="#渋江抽斎"><ruby><rb>恒吉</rb><rt>ツ子キチ</rt></ruby></persName><milestone unit="wbr"/>といへり</note>を愛し、<persName corresp="#渋江抽斎">恒吉</persName>、一歳より
+        <lb/>五歳迄、殆んど毎日の如くに其の膝下に在
+        <lb/>り。</p>
+        <p><note place="top" corresp="#note03_01"><date when="1805">文化二年乙丑</date></note></p>
+        <p><note place="top" style="color:red" corresp="#note03_02"><persName corresp="#津軽寧親">津軽藩主（寧親）</persName>従来四萬八千石の処、<date when="1805-06-12" when-custom="文化2年5月15日">此年五月十五日</date><del>高直し</del>七万石と為る、所謂御乗出し是れ也。</note></p>
+        <p><note place="top" corresp="#note03_03"><anchor xml:id="cn03_02_s"/>抽斎の父<persName corresp="#渋江允成">允成</persName>は幼時毎日<persName corresp="#津軽信明">信明公</persName>の膝下に在りて<anchor xml:id="cn03_02_e"/>其の子<persName corresp="#津軽寧親">寧親公</persName>と嬉戯し、<persName corresp="#渋江抽斎">抽斎</persName>
+	           
+	<pb n="4" corresp="#zone_006" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6982/2128,0,2128,3308/full/0/default.jpg"/>
+	<lb/>の子<persName corresp="#渋江保">成善</persName>
+	<lb/>（保）も亦
+<lb/>幼時毎日
+<lb/><persName corresp="#津軽寧親">寧親公</persName>の
+<lb/>子<persName corresp="#津軽信順">信順公</persName>
+<lb/>の膝下に
+<lb/>嬉戯せり
+</note></p></div>
+<div><head style="#m3"><date when="1806" when-custom="文化3年">文化三年丙寅</date></head>
+<head>二歳</head>
+</div>
+<div>
+<head style="#m3"><date when="1807" when-custom="文化4年">文化四年丁卯</date></head>
+<head xml:id="note04_01">三歳</head>
+<p style="#m1">是れより先き、<date when="1800-04-03" when-custom="寛政3年3月11日">寛政十二年庚申三月十一日</date>、父
+<lb/><persName corresp="#渋江允成">允成</persName>は、地行の外に、勤料五人扶持を領せしが、
+<lb/>今茲十一月十一日、更に五人扶持を加へて、勤
+<lb/>料十人扶持を領することゝ為る、</p>
+<note place="bottom" style="color:red" corresp="#note04_01">
+<lb/>初代辰
+<lb/>盛、<date when="1712-08-29" when-custom="正徳2年7月28日">正
+<lb/>徳二年
+<lb/>壬辰七
+<lb/>月二十
+<lb/>八日</date>、加
+<lb/>増、三
+<lb/>百石
+<lb/>（外に
+<lb/>十人
+<lb/>扶持）
+<lb/>を領
+<lb/>す
+</note>
+</div>
+<div>
+<head style="#m3"><date when="1808" when-custom="文化5年">文化五年戊辰</date></head>
+<head>四歳</head>
+	
+<pb n="5" corresp="#zone_007" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6982/0,0,2128,3308/full/0/default.jpg"/>
+<note place="top">
+<lb/>コレハ<date>文化五
+<lb/>年</date>也</note>
+<note style="color:red" place="top"><date when="1809-02-02" when-custom="文化5年12月18日">十二月十八日</date>
+<lb/>藩主、十
+<lb/>万石に進
+<lb/>ミ、<del>本暦間</del>
+<lb/>従四位下、四
+<lb/>品と為る、
+<lb/>従来<del>柳間</del>
+<lb/>従五位下
+<lb/>也</note>
+</div>
+<div>
+<head style="#m3"><date when="1809" when-custom="文化6年">文化六年己巳</date></head>
+<note style="color:red;#m9">五月朔日、<add>津軽</add>分家一万石高列候
+<lb/>柳間従五位下
+</note>
+<head>五歳</head>
+<p style="#m1">始て<persName corresp="#市野迷庵">市野迷庵</persName>の門に入る</p>
+</div>
+<div>
+<head style="#m3"><date when="1810" when-custom="文化7年">文化七年庚午</date>
+</head>
+<head>六歳</head></div>
+<div>
+<head style="#m3"><date when="1810" when-custom="文化8年">文化八年辛未</date></head>
+<head>七歳</head>
+<p><date when="1811-03-15" when-custom="文化8年2月21日">閏二月二十一日</date>、父<persName corresp="#渋江允成">允成</persName>、従来勤料十人扶持の
+<lb/>処更に五人扶持を加増せられて十五人扶持
+<lb/>と為る
+<note rend="割注">此行ハ此<milestone unit="wbr"/>の外なり</note></p>
+</div>
+<div>	
+	
+	<pb n="6" corresp="#zone_008" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6983/2128,0,2128,3308/full/0/default.jpg"/>
+        <lb/><p style="color:red;#m10">(<date when="1811-03-08" when-custom="文化8年閏2月14日">閏二月<add place="right">十四日</add></date>、妹生れ、即刻死す、
+        <lb/>法号<persName corresp="#曇華水子">曇華水子</persName>)</p>
+        <lb/><p style="color:red;#m11">[<persName corresp="#渋江抽斎">抽齋</persName>の兄弟は、此の外
+        <lb/>に姉<persName corresp="#渋江逸子">逸子</persName>夭<persName corresp="#渋江須磨子">須磨子</persName>あ
+        <lb/>り、此の水子と<persName corresp="#渋江抽斎">抽齋</persName>と
+        <lb/>を併せて都合四人也、］</p>
+        <lb/></div>
+        <div><head style="#m3"><date when="1812" when-custom="文化9年">文化九年壬申</date></head>
+        <lb/><note style="#m3" hand="#ougai"><date when="1812-10-15" when-custom="文化9年9月11日">九月十一日</date><persName corresp="#渋江允成">允成</persName>母<persName corresp="渋江早太">渋江早太</persName>祖母死ニ付忌引、<date when="1812-10-23" when-custom="文化9年9月19日">十九日</date>忌御免、日記</note>
+        <lb/><head>八歳</head>       
+        <lb/><p xml:id="note05_01" style="#m1"><date when="1812-09-03" when-custom="文化9年7月28日"><anchor xml:id="cn05_01_s"/>七月二十八日</date>、父<persName corresp="#渋江允成">允成</persName>、<add place="right">藩主より</add>一粒金丹製法を傳授せ
+        <lb/>らる、</p>
+        <note style="color:red" corresp="#note05_01" place="margin">是れハ、
+        <lb/>文化十一
+        <lb/>年の
+        <lb/>部に入るべきを、誤て此処へ入れたり</note>
+	
+	<pb n="7" corresp="#zone_009" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6983/0,0,2128,3308/full/0/default.jpg"/>
+        <lb/><p style="color:red;#m2">（一粒金丹は津輕家の秘法にして、強壮劑な
+        <lb/>り、藩中、其の傳授を許さるゝもの僅々數名
+        <lb/>に過ぎず、三十粒入一包金一歩。十五粒入<add place="left">半包</add>金
+        <lb/>二朱にて廣く全國へ配布す、
+        <persName corresp="#渋江保">保</persName>の少時<del><gap reason="illegible" quantity="5" unit="character"/></del><del>目
+        <lb/>撃</del><add place="right">実験</add>する所に拠るに、毎月四五百包づゝ需要
+        <lb/>者ありたり、）<anchor xml:id="cn05_01_e"/></p></div>
+        
+        <div><lb/><head style="#m3"><date when="1813" when-custom="文化10年">文化十年癸酉</date></head>
+        <lb/><head>九歳</head>
+        </div>
+
+        <div><lb/><head style="#m3"><date when="1814" when-custom="文化11年">文化十一年甲戌</date></head>
+        <lb/><head xml:id="note05_02">十歳</head>
+
+        <lb/><note corresp="#note05_02" place="top">前の一粒
+        <lb/>金丹云々
+        <lb/>ハ此処に
+        <lb/>入るべき也</note>
+	
+	<pb n="8" corresp="#zone_010" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6984/2128,0,2128,3308/full/0/default.jpg"/>
+        <lb/><p style="#m1"><date when="1815-02-06" when-custom="文化11年12月28日">十二月二十八日</date>、始て<persName corresp="#津軽寧親">藩主(寧親)</persName>へ『御目見』、
+        <lb/>始て<persName corresp="#伊沢蘭軒">伊澤蘭軒</persName>の門に入る、</p>
+
+        <lb/><p style="#m2">（<anchor xml:id="cn06_01_s"/><persName corresp="#渋江抽斎">抽齋</persName>の師ハ、此の外に<persName corresp="#池田京水">池田京水</persName>阿り<anchor xml:id="cn06_01_e"/>、先輩に
+        <lb/>ハ<persName corresp="#狩谷棭斎">狩谷棭齋</persName>あり、又画を<persName corresp="#谷文晁">谷文晁</persName>に学びたれ
+        <lb/>ども、<anchor xml:id="cn06_02_s"/>不幸にして、抽齋父子の日記悉く水難
+        <lb/>に逢ひたれバ<anchor xml:id="cn06_02_e"/>、其の年月を詳にすること能は
+        <lb/>ず、</p>
+
+        <lb/><p xml:id="note06_01" style="#m3">要するに、<persName corresp="#渋江抽斎">抽齋</persName>の最も好める書は、經書の
+        <lb/>外に老子、素問を愛讀せり、其の外好む所
+        <lb/>は古珍本。古武鑑。<note rend="割注">大名の行列を觀るこ<milestone unit="wbr"/>とをも頗る好めり、</note>赤本。
+	
+	<pb n="9" corresp="#zone_011" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6984/0,0,2128,3308/full/0/default.jpg"/>
+        <lb/>菎蒻本。黄表紙。<add place="right">古画。</add><anchor xml:id="cn06_03_s"/>又說文を好ミて<add place="right">後年</add>毎月說文
+        <lb/>㑹を開き、<persName corresp="#小島成斎">小島成齋</persName>。<persName corresp="#森立之">森立之</persName>。<persName corresp="#平井東堂">平井東堂</persName>。<persName corresp="#海保竹逕">海保
+        <lb/>竹逕</persName>。<persName corresp="#喜多村安斎">喜多村安<del>節</del><add place="right">斎</add></persName>。<persName corresp="#栗本鋤雲">栗本鋤雲</persName>等之に㑹せり、
+        <lb/><persName corresp="#島田篁村">島田篁村<note rend="割注">重<milestone unit="wbr"/>礼</note></persName>等も屢〻聽講に來りしことあ
+        <lb/>り<anchor xml:id="cn06_03_e"/>、又古銭。演劇。能樂。照葉狂言。等を好ミ、食
+        <lb/>物の中にて特別に嗜ミたるハ蘿蔔なり、
+        <lb/>謡曲、長<del>﨑</del><add place="right">唄</add>なども学び得、<anchor xml:id="cn06_04_s"/>囲碁亦其の長所
+        <lb/>なり、<anchor xml:id="cn06_04_e"/></p></div>
+
+        <div><lb/><head style="#m3"><date when="1815" when-custom="文化12年">文化十二年乙亥</date></head>
+        <lb/><head>十一歳</head></div>
+        <anchor xml:id="cn06_05_s"/><note style="color:red" corresp="#cn06_01" place="top"><lb/><persName corresp="渋江抽斎">抽斎</persName>又、<lb/>越後<lb/>獅子(<del>角</del><add>覚</add><lb/>兵術) を<lb/>好み、毎日<lb/>中の口玄<lb/>關の敷臺に於<lb/>て舞はし<lb/>め、在宅の<lb/>時ハ、(何等<lb/>用事あり<lb/>とも、必ら<lb/>ずそれを<lb/>打捨て置き、)<lb/>親から出<lb/>て、見<lb/>物したり、</note><anchor xml:id="cn06_05_e"/>
+	
+<pb n="10" corresp="#zone_012" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6985/2128,0,2128,3308/full/0/default.jpg"/>
+         <div><head style="#m3"><date when="1816" when-custom="文化13年">文化十三年丙子</date></head>
+      <head>十二歳</head></div>
+         <div><head style="#m3"><date when="1817" when-custom="文化14年">文化十四年丁丑</date></head>
+      <head style="#m3">十三歳</head>
+            <p xml:id="note07_01" style="#m1">今茲<persName corresp="#森立之">森立之</persName>。<persName corresp="#渋江抽斎">抽斎</persName>の門に入る</p><note corresp="#note07_01" type="割注">「<persName corresp="#渋江抽斎">先生</persName>が十三歳。<persName corresp="#森立之">弟<milestone unit="wbr"/>子</persName>が十一歳なり<lb/>
+            き」とハ後年の<milestone unit="wbr"/>一口話なり、</note></div>
+         <div><head style="#m3"><date when="1818" when-custom="文政1年">文政元年戊寅</date></head>
+      <head style="#m3">十四歳</head></div>
+<div>         <head style="#m3"><date when="1819" when-custom="文政2年">文政二年己卯</date></head>
+      <head>十五歳</head>
+	
+	<pb n="11" corresp="#zone_013" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6985/0,0,2128,3308/full/0/default.jpg"/>
+      <p style="color:red;#m10">（<date when="1820-01-09" when-custom="文政2年11月24日">十一月二十四日</date>、姉<persName corresp="#渋江須磨子">須磨<lb/>子</persName><note type="割注">十八<milestone unit="wbr"/>歳</note>幕臣<persName corresp="飯田四郎左衛門良清">飯田四郎左<lb/>衛門良清</persName>に嫁す、）</p></div>
+        <div><head style="#m3"><date when="1820" when-custom="文政3年">文政三年庚辰</date></head>
+      <head xml:id="note07_02">十六歳</head>
+         <note corresp="#note07_02" place="top" style="color:red"><date when="1821-01-19" when-custom="文政3年12月16日">十二月十六<lb/>日</date>、<persName corresp="#津軽寧親">藩主</persName><lb/>任侍従</note></div>
+         <div><head style="#m3"><date when="1821" when-custom="文政4年">文政四年辛巳</date></head>
+      <head>十七歳</head>
+         <p style="#m1"><date when="1821-10-26" when-custom="文政4年10月1日">十月朔日</date>、月並出仕を命せらる、</p></div>
+         <div><head style="#m3"><date when="1822" when-custom="文政5年">文政五年壬午</date></head>
+      <head xml:id="note07_03">十八歳</head>
+         <note corresp="#note07_03" place="top" style="color:red"><date when="1822-08-02" when-custom="文政5年6月16日">六月十六<lb/>日</date>、<persName corresp="#津軽寧親">藩主</persName>大広間<lb/>着坐を命<lb/>せらる</note>
+	      
+<pb n="12" corresp="#zone_014" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6986/2128,0,2128,3308/full/0/default.jpg"/>
+<p>
+<lb/><anchor xml:id="cn08_01_s"/><date when="1822-04-19" when-custom="文政5年2月28日">二月二十八日</date>、<note place="right" style="color:black" hand="#ougai">御番見習、表医者を仰付、即日見習、日記</note>勤務命ぜられる、
+<lb/><note place="right" style="color:black" hand="#ougai"><date when="1822-04-22" when-custom="文政5年3月1日">三月朔</date>本番入（日記）<anchor xml:id="cn08_01_e"/></note>
+<lb/><anchor xml:id="cn08_02_s"/><date when="1822-09-19" when-custom="文政5年8月1日">八月朔日</date>、父<persName corresp="#渋江允成">允成</persName>隠居願済、<note rend="割注">勤仕三十九年。<milestone unit="wbr"/>年五十九歳。</note><persName corresp="#渋江抽斎">抽斎</persName>
+<lb/>家督。地行無相違被下置、<anchor xml:id="cn08_02_e"/>
+<lb/>（父<persName corresp="#渋江允成">允成</persName>、隠居料五人扶持を受領す、<note rend="割注">下ニ<milestone unit="wbr"/>出ヅ</note>）
+<lb/><anchor xml:id="cn08_03_s"/><date when="1822-09-29" when-custom="文政5年8月15日">同十五日</date>、一粒金丹製法を傳授せらる、<anchor xml:id="cn08_03_e"/>
+</p>
+</div>
+<div><head style="#m3"><date when="1823-06" when-custom="文政6年">文政六年癸未</date></head>
+<head>十九歳</head>
+<p>
+<lb/><anchor xml:id="cn08_04_s"/><date when="1824-01-23" when-custom="文政6年12月23日">十二月二十三日</date>、<placeName corresp="#下野国">下野国</placeName>浪士<persName corresp="#尾島忠助">尾島忠助</persName>の女<persName corresp="#尾嶋定子"><ruby><rb>定</rb><rt>さだ</rt></ruby>
+<lb/>子</persName><note rend="割注">十七<milestone unit="wbr"/>歳</note>を娶る、<anchor xml:id="cn08_04_e"/>
+</p>
+</div>
+<div><head style="#m3"><date when="1824" when-custom="文政7年">文政七年甲申</date></head>
+	      
+<pb n="13" corresp="#zone_015" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6986/0,0,2128,3308/full/0/default.jpg"/>
+<head>二十歳</head>
+<p xml:id="note13_01">
+<lb/><note hand="#ougai"><anchor xml:id="cn08_05_s"/><date when="1824-07-07" when-custom="文政7年6月11日">六月十一日</date><persName corresp="#尾島定子">岩田氏百合</persName>来
+<lb/>嫁ス（日記）即<persName corresp="#尾嶋定子">尾嶋氏</persName>也<anchor xml:id="cn08_05_e"/></note>
+<note corresp="#note13_01" place="top" style="color:red">
+<lb/><date when="1825-02-03" when-custom="文政7年12月16日">十二月十六
+<lb/>日</date>、藩主<persName corresp="#津軽信順">世
+<lb/>子（信順）</persName>
+<lb/>四品に叙せ
+<lb/>らる
+</note>
+<note corresp="#note13_01" place="below" style="color:red"><lb/><date when="1824-07-26">七月朔日</date>、母<persName corresp="#岩田縫子">縫子</persName>、剃髪し
+<lb/>て<persName corresp="#岩田縫子">寿松</persName>と改む。年五十）
+<lb/>［父<persName corresp="#渋江允成">允成</persName>。今茲六十一］
+</note></p>
+</div>
+<div><head style="#m3"><date when="1825" when-custom="文政8年">文政八年乙酉</date></head>
+<head>二十一歳</head>
+<p xml:id="note13_02">
+<note corresp="#note13_02" place="below" hand="#ougai"><date when="1825-05-17" when-custom="文政8年3月31日">三月晦</date><placeName corresp="#神田元柳原六丁目">神田元柳原六丁目</placeName>宅過半類焼ス（日記）</note>
+<note corresp="#note13_02" place="top" style="color:red"><lb/>（上）<date when="1825-04-10" when-custom="文政8年4月10日">四月十日</date>、<persName corresp="#津軽寧親">藩
+<lb/>主（寧親）</persName>
+<lb/>隠居、<persName corresp="#津軽信順">世子
+<lb/>（信順）即位</persName>
+</note>
+</p>
+</div>
+<div><head><date when="1826" when-custom="文政9年">文政九年丙戌</date></head>
+<head>二十二歳</head>
+<p xml:id="note13_03">
+<note corresp="#note13_03" style="color:red;#m9"><lb/>後（<date when="1826-12-05" when-custom="文政9年12月5日">十二月五日</date>、<persName corresp="#渋江恒善"><ruby><rb>恒善</rb><rt place="right">ツネヨシ</rt></ruby></persName>生る）
+<lb/><persName corresp="#尾島定子">母</persName>二十歳
+</note>
+<note hand="#ougai"><date when="1826-07-14" when-custom="文政9年7月14日">七月十四日</date>忌明日記</note>
+<note corresp="#note13_03" style="color:red;#m9">前（<anchor xml:id="cn08_06_s"/><date when="1826-06-28" when-custom="文政9年6月28日">六月二十八日</date>、<persName corresp="#渋江須磨子">姉飯田須
+
+<pb n="14" corresp="#zone_016" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6987/2128,0,2128,3308/full/0/default.jpg"/>
+磨子</persName>死す。<note rend="割注">享年二<milestone unit="wbr"/>十五</note>）<anchor xml:id="cn08_06_e"/></note></p></div>
+<div><head style="#m3"><date when="1827" when-custom="文政10年">文政十年丁亥</date></head>
+<head>二十三歳</head></div>
+<note corresp="#note14_01" place="top" style="color:red"><date when="1827-08-14" when-custom="文政10年8月14日">此の年八月十四日</date><persName corresp="市野迷庵">市野迷庵</persName>没す<note rend="割注">六十<milestone unit="wbr"/>二歳</note></note>
+<div><head style="#m3"><date when="1828" when-custom="文政11年">文政十一年戌子</date></head>
+<head>二十四歳</head></div>
+<div><head style="#m3"><date when="1829" when-custom="文政12年">文政十二年巳丑</date></head>
+<head>二十五歳</head>
+<p><date when="1829-03-28" when-custom="文政12年3月28日">三月二十八日</date>、近侍に昇進す。</p><note place="right" hand="#ougai">近習醫者介ヶ（日記）</note><note place="left">（御近習格）</note>
+<p><anchor xml:id="cn09_01_s"/><note corresp="#note14_01" style="color:red;#m10"><date when="1829-06-14" when-custom="文政12年6月14日">六月十四日</date>、母<persName corresp="#岩田縫子">壽松</persName>死す。
+<lb/><note style="color:red" rend="割注">享年五<milestone unit="wbr"/>十五）</note></note><anchor xml:id="cn09_01_e"/></p>
+
+<pb n="15" corresp="#zone_017" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6987/0,0,2128,3308/full/0/default.jpg"/>
+<p><date when="1829-11-11" when-custom="文政12年11月11日">十一月十一日</date>、妻<persName corresp="#尾島定">尾島氏<note rend="割注">定子</note></persName>離縁<note place="right"><add hand="#ougai"><persName corresp="岩田百合">岩田氏百合</persName>カ</add></note>
+<lb/><date when="1829-12-15" when-custom="文政12年12月15日">十二月十五日</date><note place="right" hand="#ougai"><anchor xml:id="cn09_02_s"/><date when="1829-11-12" when-custom="文政12年11月12日">十一月十二日</date>（日記）</note>、同藩士<note rend="割注">留守居役</note>比良野文藏の女<del>徳</del><persName corresp="#比良野威能"><ruby><rb>威</rb><rt>い</rt></ruby>
+<lb/><ruby><rb>能</rb><rt>の</rt></ruby>子</persName><note rend="割注">二十四歳</note>を娶る。<anchor xml:id="cn09_02_e"/></p></div>
+<div><head style="#m3"><date when="1830" when-custom="天保1年">天保元年庚寅</date></head>
+<head>二十六歳</head></div>
+<div><head style="#m3"><date when="1831" when-custom="天保2年">天保二年辛卯</date></head>
+<head>二十七歳</head>
+<p style="color:red;#m9"><lb/>（父隠居<persName corresp="#渋江允成">允成</persName>、是迄老公<persName corresp="#津軽寧親">寧親</persName>、
+<lb/>及當候<persName corresp="#津軽信順">信順</persName>へ出仕の処、
+<lb/><note place="right">六月</note>更らに岩城伊豫守夫人<note rend="割注">津軽</note></p>
+<note corresp="#note15_01" place="top" style="color:red"><anchor xml:id="cn09_03_s"/>此の破鏡の原因ハ<persName corresp="#渋江保">保</persName>之を知らず、只<persName corresp="#山内五百">母</persName>より聞く所に拠れバ、初め抽齋の父<persName corresp="#渋江允成">允成</persName>が、妻ハ貧苦の中に育ちし勤険主義の者に限るとの意見より<persName corresp="#尾島定">定子</persName>を迎へたるなれども、それが、どうも豫想のやうに行かなんだ云々、<anchor xml:id="cn09_03_e"/></note>
+
+<pb n="16" corresp="#zone_018" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6988/2128,0,2128,3308/full/0/default.jpg"/>
+<note style="color:red;#9em">
+   <lb/><note rend="割注">家より婦ぎ<milestone unit="wbr"/>たる人也</note>并に<note place="right">八月</note><persName corresp="#欽姫">欽姫</persName><note rend="割注">津軽<milestone unit="wbr"/>家令</note>
+   <lb/>嬢へも出仕を命ぜらる、）
+   <lb/>(<anchor xml:id="cn10_01_s"/><date when="1831-09-11" when-custom="天保2年8月6日">八月六日</date>、<persName corresp="#渋江純子"><ruby><rb>純</rb><rt>いと</rt></ruby></persName>子生る、<anchor xml:id="cn10_01_e"/>)
+</note>
+<note style="#m3" hand="#ougai"><anchor xml:id="cn10_02_s"/><date when="1839-09-20" when-custom="天保2年8月15日">八月十五日</date><persName corresp="#渋江允成">允成</persName>隠居
+<lb/>料三人扶持、<note rend="割注">日<milestone unit="wbr"/>記</note><anchor xml:id="cn10_02_e"/></note>
+<p style="#m1">
+   <lb/><anchor xml:id="cn10_03_s"/><date when="1831-11-05" when-custom="天保2年10月2日">十月二日</date>、妻<persName corresp="#比良野威能">威能子</persName>死す、<note rend="割注">享年二<milestone unit="wbr"/>十六<anchor xml:id="cn10_03_e"/></note>
+   <lb/><anchor xml:id="cn10_04_s"/><date when="1832-01-06" when-custom="天保2年12月4日">十二月四日、</date>福山<note rend="割注">阿部伊<milestone unit="wbr"/>豫守</note>藩士、<persName corresp="#岡西栄玄">岡西榮玄</persName>女<persName corresp="#岡西徳子">徳子</persName>
+   <lb/><note rend="割注">二十<milestone unit="wbr"/>二歳</note>を娶る、<anchor xml:id="cn10_04_e"/>
+</p>
+</div>
+<div>
+<head style="#m3"><date when="1832" when-custom="天保3年">天保三年壬辰</date></head>
+<head>二十八歳</head>
+</div>
+<div>
+<head style="#m3"><date when="1833" when-custom="天保4年">天保四年癸巳</date></head>
+<head>二十九歳</head>
+
+<pb n="17" corresp="#zone_019" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6988/0,0,2128,3308/full/0/default.jpg"/>
+<p xml:id="note10_01" style="#m1">
+    <lb/><anchor xml:id="cn10_05_s"/><date when="1833-05-24" when-custom="天保4年4月6日">四月六日</date>、<persName corresp="#津軽信順">君公</persName>に扈従して弘前に行く、<note rend="割注"><date when="1834-12-15" when-custom="天保5年11月15日">翌年<del rend="見せ消ち">三</del><add style="color:red" place="right">十一</add><milestone unit="wbr"/>月<add style="color:red" place="left">十五日</add></date>歸府<del rend="見せ消ち">せし</del></note><anchor xml:id="cn10_05_e"/>
+   <lb/><del rend="見せ消ち"><note rend="割注">なら<milestone unit="wbr"/>ん、</note></del><add style="color:red" place="below">す、</add>
+   <note hand="#ougai" style="#8m"><anchor xml:id="cn10_06_s"/><date when="1833-05-19" when-custom="天保4年4月1日">四月朔</date><persName corresp="#渋江允成">允成</persName>隠居料二人扶持増、<note rend="割注">日<milestone unit="wbr"/>記</note><anchor xml:id="cn10_06_e"/></note>
+   <note style="color:red" place="top" corresp="#note10_01"><anchor xml:id="cn10_07_s"/>
+   <lb/><date when="1833-07-30" when-custom="天保4年6月14日">六月十
+   <lb/>四日</date>、藩
+   <lb/>主隠居
+   <lb/><persName corresp="#津軽寧親">寧親
+   <lb/>（上仙院）</persName>
+   <lb/>薨す
+   <lb/>享年
+   <lb/>六十九、
+   <anchor xml:id="cn10_07_e"/>
+   <lb/>彼の<persName corresp="#相馬大作">相
+   <lb/>馬大作</persName>
+   <lb/>が矢立
+   <lb/>峠に於
+   <lb/>て暗殺
+   <lb/>せしと
+   <lb/>誤傳
+   <lb/>するハ
+   <lb/>此人也
+   </note>
+</p>
+</div>
+<div>
+<head style="#m3"><date when="1834" when-custom="天保5年">天保五年甲午</date></head>
+<note style="color:red;#m10"><date when-custom="天保5年12月16日">十二月十六日</date>、藩主任侍従</note>
+<head>三十歳</head>
+</div>
+<div>
+<head style="#m3"><date when="1835" when-custom="天保6年">天保六年乙未</date></head>
+<head>三十一歳</head>
+<note place="bottom" style="color:red">
+<lb/><date when="1835-08-27" when-custom="天保6年閏7月4日">此の年、
+<lb/>閏七月
+<lb/>四日</date><persName corresp="#狩谷棭斎">狩
+<lb/>谷棭
+<lb/>齋</persName>没
+<lb/>す（六
+<lb/>十一歳）
+</note>
+<note style="color:red;#m10">
+<lb/>（<date when="1835-12-24" when-custom="天保6年11月5日">十一月五日</date>、<persName corresp="#渋江優善"><ruby><rb>優善</rb><rt>やすよし</rt></ruby></persName>生る、）
+</note>
+<note style="color:red;#m11">
+<persName corresp="#渋江優善">優善</persName>、<add>後に<ruby><rb>優</rb><rt>ゆたか</rt></ruby>と改む</add>十七歳の時、同藩
+<lb/>士の（醫師）<persName corresp="#矢島玄碩">矢島玄碩</persName>の養
+<lb/>子と為り、「表醫者」を勤
+<lb/>む、「<date when="1870" when-custom="明治3年">明治三年</date>浦和縣（後
+<lb/>埼玉縣）の官吏と為り
+<lb/>同六年、工部省鑛山寮
+
+<pb n="18" corresp="#zone_020" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6989/2128,0,2128,3308/full/0/default.jpg"/>            
+            <lb/>に轉任し、<date when="1879" when-custom="明治12年">同十二年</date>、<add place="right">また</add>開
+            <lb/>拓使（後札幌縣）に轉じ、
+            <lb/><date when="1883-12-02" when-custom="明治16年12月2日">同十六年、十二月二日</date>
+            <lb/>死す、享年四十九</note>
+         </div>
+        <div>
+            <head style="#m3"><date when="1836" when-custom="天保7年">天保七年丙申</date></head>
+            <head>三十二歳</head>
+            <p style="#m1"><date when="1836-05-06" when-custom="天保7年3月21日">三月二十一日</date>昇級
+            <lb/>（御近習格より御近習詰に）
+            <lb/><note style="color:red;#m12">（<date when="1836-11-22" when-custom="天保7年10月14日">十月十四日</date>、師、<persName corresp="#池田京水">池田
+            <lb/>京水</persName>没す）</note></p>
+        </div>
+        <div>
+            <head style="#m3"><date when="1836" when-custom="#天保8年">天保八年丁酉</date></head>
+            <head>三十三歳</head>
+         </div>
+        <div>
+            <head style="#m3"><date when="1836" when-custom="#天保8年">天保八年丁酉</date></head>
+            <head>三十三歳</head>
+            <anchor xml:id="cn11_01_s"/>
+            <p>
+                <note style="#m1" hand="#ougai"><date when="1837-02-19" when-custom="天保8年1月15日">正月十五日</date>目見、(日記)</note>
+                <note style="color:red;#m10">（<date when="1837-02-19" when-custom="天保8年1月15日">正月十五日</date>、長子<persName corresp="#渋江恒善">恒善</persName>始
+                <lb/>めて<persName corresp="#津軽信順">君公</persName>へ御目見<note rend="割注">十二<milestone unit="wbr"/>歳</note>）</note>
+            </p>
+            <p style="#m3">
+                <date when="1837-08-12">七月十二日</date>、君公に扈従して弘前に行く、
+            </p>
+            <anchor xml:id="cn11_01_e"/>
+            
+        <pb n="19" corresp="#zone_021" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6989/0,0,2128,3308/full/0/default.jpg"/>
+            <p style="#m2">
+           <anchor xml:id="cn11_02_s"/>
+                <lb/>（是迄、<persName corresp="#渋江抽斎">抽齋</persName>ハ下戸にて、酒一滴をも口に執ら
+                <lb/>ざりしが、此の時、<placeName>弘前</placeName>へ詰越<note rend="割注">翌年<persName corresp="#津軽信順">君公</persName>帰府<milestone unit="wbr"/>せず翌々年に</note>
+                <lb/><note rend="割注">至りて始めて<milestone unit="wbr"/>帰府せる也</note>と為りて寒氣に堪えざりし
+                <lb/>と、<persName corresp="#渋江允成">父</persName>が死するも帰府を許されざりしとに
+                <lb/>て、遂に酒客と為り、爾来晩酌に少量を傾く
+                <lb/>ることと為れりと聞く、）
+                <anchor xml:id="cn11_02_e"/>
+            </p>
+           <anchor xml:id="cn11_03_s"/>
+            <p style="#m3">
+            <lb/>［然れども煙草ハ一切用ゐず、<persName corresp="#渋江允成">抽齋の父</persName>。姊
+            妹。子。孫を併せて三十五人<note rend="割注"><persName corresp="#渋江允成">父允成</persName>。兄弟四<milestone unit="wbr"/>人。姊の子二人。</note>
+            <note rend="割注">子十四人。孫<milestone unit="wbr"/>十四人。</note>あれども、次男<persName corresp="#渋江優善">優善</persName>を除くの
+            <lb/>外、一人も煙草を用ゆる者なし、亦一奇と<anchor xml:id="cn11_03_e"/>
+
+<pb n="20" corresp="#zone_022" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6990/2128,0,2128,3308/full/0/default.jpg"/>
+<anchor xml:id="cn12_01_s"/><lb/>いふべし、<note type="割注">勿論其の配遇ハ皆<milestone unit="wbr"/>煙草を用ゆれども、</note><anchor xml:id="cn12_01_e"/>
+<lb/><anchor xml:id="cn12_02_s"/>
+<persName corresp="#渋江抽斎">抽斎</persName>又此の時、藩地に在りて、防寒の為め
+<lb/>に豚<add place="left">を飼養し、其の</add>肉を用ゐたり、晩年にも往々猪肉を
+<lb/>用ゐしと<persName corresp="#岩田縫子">母</persName>より聞く、〕<anchor xml:id="cn12_02_e"/></p>
+<note style="color:red;#m10"><lb/><date when="1837-10-27">十月<note hand="#ougai">二十七日(日記)</note></date>二十六日、父<persName corresp="#渋江允成">允成</persName>死
+   <lb/>す、<note type="割注">享年七<milestone unit="wbr"/>十四</note></note>
+</div>
+<div><head style="#m3"><date when="1838" when-custom="天保9年">天保九年戊戌</date></head>
+<head>三十四歳</head>
+   <anchor xml:id="cn12_03_s"/><note hand="#ougai">正月十三日忌明出仕、(日記)</note><anchor xml:id="cn12_03_e"/>
+   <anchor xml:id="cn12_04_s"/><p style="#m1">此の年、弘前に在り、</p></div><anchor xml:id="cn12_04_e"/>
+<div><head style="#m3"><date when="1839" when-custom="天保10年">天保十年己亥</date></head>
+
+<pb n="21" corresp="#zone_023" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6990/0,0,2128,3308/full/0/default.jpg"/>
+<head>三十五歳</head>
+<p style="#m1">
+  <anchor xml:id="cn12_05_s"/> <lb/>此の年<note type="割注">月日<milestone unit="wbr"/>未詳</note><persName corresp="#津軽信順">君公</persName>に扈従して江戸に帰る、<anchor xml:id="cn12_05_e"/><anchor xml:id="cn12_06_s"/>間も
+   <lb/>なく<persName corresp="#津軽信順">君公(信順</persName>)隠居し、<note type="割注">四十<milestone unit="wbr"/>歳</note>養子(<persName corresp="#津軽順承">順承</persName><note type="割注">亦四<milestone unit="wbr"/>十歳</note>)五月
+   <lb/>十五日、位に即きたるに付き、<anchor xml:id="cn12_06_e"/><anchor xml:id="cn12_07_s"/><persName corresp="#渋江抽斎">抽斎</persName>は隠居附き
+   <lb/>を命ぜられ、<persName corresp="#津軽信順">君公</persName>へハ只時々伺候するのみ、<anchor xml:id="cn12_07_e"/>
+</p>
+</div>
+<div><head style="#m3"><date when="1840" when-custom="天保11年">天保十一年庚子</date></head>
+<head>三十六歳</head></div>
+<div><head style="#m3"><date when="1841" when-custom="天保12年">天保十二年辛丑</date></head>
+<head>三十七歳</head>
+<note style="color:red;#m10"><date when="1841-02-26" when-custom="天保12年閏正月26日">閏正月二十六日、</date><persName corresp="渋江好子"><ruby><rb>好</rb><rt>よし</rt></ruby>子</persName>生
+
+<pb n="22" corresp="#zone_024" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6991/2128,0,2128,3308/full/0/default.jpg"/>
+れ<date when="1841-03-25" when-custom="天保12年2月3日">二月三日</date>死す、</note>
+<head style="#m3"><date when="1842" when-custom="天保13年">天保十三年壬寅</date></head>
+<head>三十八歳</head>
+<note style="color:red;#m10"><date when="1842-09-07" when-custom="天保12年8月3日">八月三日</date><persName corresp="渋江八三郎">八三郎</persName>生れ<lb/><date when="1842-11-11" when-custom="天保12年10月9日">十月九日</date>死す、</note></div>
+<div><head style="#m3"><date when="1843" when-custom="天保14年">天保十四年癸卯</date></head>
+<head>三十九歳</head>
+<p><date when="1843-07-12" when-custom="天保14年6月15日">六月十五日</date><add><note place="left">（御近習に）</note></add>昇級</p></div>
+<div><head style="#m3"><date when="1844" when-custom="弘化1年">弘化元年甲辰</date></head>
+<head>四十歳</head>
+<note place="top" style="color:red"><date when="1845-01-23" when-custom="弘化1年12月16日">十二月十六日</date><lb/>日、藩主<lb/>叙四品、</note>
+	
+<pb n="23" corresp="#zone_025" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6991/0,0,2128,3308/full/0/default.jpg"/>
+<p><note>㊁</note><anchor xml:id="cn13_01_s"/><date when="1844-04-29" when-custom="弘化1年3月12日">三月十二日</date>医学館講師たるべき台命ありた<lb/>る旨、<persName corresp="#土井利位">土井大炊頭</persName>より達せらる、<anchor xml:id="cn13_01_e"/></p>
+<p><note>㊂</note><anchor xml:id="cn13_02_s"/><date when="1844-06-14" when-custom="弘化1年4月29日">四月二十九日</date>、自今年始、八朔、五節句、月並御礼<lb/>御城<note type="割注">江戸<milestone unit="wbr"/>城</note>へ罷出べき旨、命ぜらる、<anchor xml:id="cn13_02_e"/></p>
+<p><note>㊀</note><anchor xml:id="cn13_03_s"/><date when="1844-04-08" when-custom="弘化1年2月21日">二月二十一日</date>、妻<persName corresp="#岡西徳子">徳子</persName>死す、</p><note type="割注">享年三<milestone unit="wbr"/>十五<anchor xml:id="cn13_03_e"/></note>
+<p><date when="1844-12-15" when-custom="弘化1年11月6日">十一月六日</date><persName corresp="山内忠兵衛">山内忠兵衛</persName><note place="right">神田紺屋町鉄問屋</note>妹<persName corresp="#山内五百子"><ruby><rb>五百</rb><rt>いほ</rt></ruby>子</persName><add>二十九歳</add>を娶る、</p><note type="割注"><persName corresp="#山内五百子">五百<milestone unit="wbr"/>子</persName>は<lb/><date when="1844-02-14" when-custom="明治十七年二月十四日">明治十七年二月十四日</date><milestone unit="wbr"/>死す享年六十九歳</note>
+<note><add hand="#ougai">（表向比良野氏<ruby><rb>翳</rb><rt>カザシ</rt></ruby>）</add></note>
+<p><date when="1945-01-17" when-custom="弘化1年12月10日">十二月十日</date>、公儀<lb/>より白銀五枚拝領</p>
+<note style="color:red #m10"><date when="1845-02-02" when-custom="弘化2年12月26日">十二月二十六日</date>、長女<persName corresp="#渋江純子"><ruby><rb>純</rb><rt>いと</rt></ruby>子</persName>、幕臣<persName corresp="馬場玄玖">馬場玄玖</persName>に嫁す、
+<lb/><note type="割注">十四<milestone unit="wbr"/>歳</note></note></div>   
+
+<pb n="24" corresp="#zone_026" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6992/2128,0,2128,3308/full/0/default.jpg"/>
+<div><head style="#3m"><date when="1845" when-custom="弘化2年">弘化二年乙巳</date></head></div>
+<div><head>四十一歳</head></div>
+<div><p xml:id="note24_01">
+<lb/><date when="1846-01-08" when-custom="弘化2年12月11日">十二月十一日</date>、公儀より
+<lb/>銀五枚拝領
+<note corresp="#note24_01" place="below" style="color:red"><anchor xml:id="cn14_01_s"/><date when="1845-12-24" when-custom="弘化2年11月26日">十一月二十六日</date>、<persName corresp="渋江棠子"><ruby><rb>棠</rb><rt>たう</rt></ruby>子</persName>生
+<lb/>る<anchor xml:id="cn14_01_e"/>
+</note>
+</p></div>
+<div><head style="#m3"><date when="1846" when-custom="弘化3年">弘化三年丙午</date></head></div>
+<div><head>四十二歳</head></div>
+<div><p xml:id="note24_02">
+<lb/><date when="1847-01-29" when-custom="弘化3年12月13日">十二月十三日</date>、公儀
+<lb/>より銀五枚拝領
+<note corresp="#note24_02" place="below" style="color:red"><lb/><anchor xml:id="cn14_02_s"/><date when="1846-12-07" when-custom="弘化3年10月19日">十月十九日</date>、男子死産、法
+<lb/>号<persName corresp="幻香水子">幻香水子</persName><anchor xml:id="cn14_02_e"/>
+</note>
+</p></div>
+<div><head style="#m3"><date when="1847" when-custom="弘化4年">弘化四年丁未</date></head></div>
+<div><head>四十三歳</head></div>
+
+<pb n="25" corresp="#zone_027" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6992/0,0,2128,3308/full/0/default.jpg"/>
+<div><p xml:id="note25_01">
+<lb/><date when="1848-01-18" when-custom="弘化4年12月13日">十二月十三日</date>、公儀
+<lb/>より銀五枚拝領
+<note corresp="#note25_01" place="below" style="color:red"><lb/><anchor xml:id="cn14_03_s"/><date when="1847-10-19" when-custom="弘化4年10月8日">十月八日</date>、<persName corresp="渋江陸子"><ruby><rb>陸</rb><rt>くが</rt></ruby>子</persName>生る（此の
+<lb/>女今猶生存す、）<anchor xml:id="cn14_03_e"/></note>
+<lb/><date when="1848-02-02" when-custom="弘化4年12月28日">十二月二十八日</date>、昇級
+<lb/>（御近習筆頭）
+</p></div>
+<div><head style="#m3"><date when="1848" when-custom="嘉永1年">嘉永元年戊申</date></head></div>
+<div><head>四十四歳</head></div>
+<div><p xml:id="note25_02">
+<lb/><date when="1849-01-14" when-custom="嘉永1年12月20日">十二月廿日</date>、公儀よ
+<lb/>り銀五枚拝領
+<note corresp="#note25_02" place="below" style="color:red"><lb/><date when="1849-01-22" when-custom="嘉永1年12月28日">十二月二十八日</date>、長子<persName corresp="渋江恒善">恒
+善</persName>、月並出仕を命じせらる
+<lb/><note type="割注">二十<milestone unit="wbr"/>三歳</note>
+</note></p></div>
+<div><head style="#m3"><date when="1849" when-custom="嘉永2年">嘉永二年巳酉</date></head>
+<head>四十五歳</head>
+	
+<pb n="26" corresp="#zone_028" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6993/2128,0,2128,3308/full/0/default.jpg"/>
+<p style="#m1"><lb/><anchor xml:id="cn15_01_s"/><date when="1849-03-30" when-custom="嘉永2年3月7日">三月七日</date>、御用召に付き、登城。年來学業出精致
+<lb/>候に付き、御序の節、御目見可被仰付旨、於躑躅
+<lb/>之間、御老中<persName corresp="#牧野忠雅">牧野備前守</persName>殿より口達あり、
+<lb/><date when="1849-04-07" when-custom="嘉永2年3月15日">三月十五日</date>、公辺御目見、<anchor xml:id="cn15_01_e"/>
+<lb/><date when="1850-02-01" when-custom="嘉永2年12月20日">十二月廿日</date>、公儀よ
+<lb/>り銀五枚拝領</p>
+<note style="color:red;#m10"><date when="1849-06-05" when-custom="嘉永2年閏4月15日">閏四月十五日</date>、長子<persName corresp="#渋江恒善">恒善</persName>
+<lb/>始めて勤務す。
+<lb/><date when="1849-10-14" when-custom="嘉永2年8月28日">八月二十八日</date>、<persName corresp="#渋江癸巳子"><ruby><rb>癸巳</rb><rt>きし</rt></ruby>子</persName>生
+<lb/>る。</note></div>
+<div><head style="#m3"><date when="1850">嘉永三年庚戌</date></head>
+<head>四十六歳</head>
+<note place="top" style="color:red"><date when="1851-01-17" when-custom="嘉永3年12月16日">十二月十六日</date>、藩主任侍従。</note>
+
+<pb n="27" corresp="#zone_029" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6993/0,0,2128,3308/full/0/default.jpg"/>
+<p style="#m1"><anchor xml:id="cn15_02_s"/><date when="1850-04-22" when-custom="嘉永3年3月11日">三月十一日</date>、学業出静の廉を以て、去春公辺御
+<lb/>目見被仰付候に付き、自今十五人扶持被下置、
+<lb/>（幕府より也、津軽藩の知行ハ従前の通り。）</p>
+<note rend="割注"><date when="1851-01-16" when-custom="嘉永3年12月15日">十二月十五日</date>公儀<milestone unit="wbr"/>より銀五枚拝領</note>
+<note style="color:red;#9"><date when="1850-10-05" when-custom="嘉永3年8月30日">八月晦日</date>、<persName corresp="#渋江純子">純子</persName>死す、<note rend="割注">享年<milestone unit="wbr"/>二十</note><anchor xml:id="cn15_02_e"/></note>
+</div>
+<div><head style="#m3"><date when="1851">嘉永四年辛亥</date></head>
+<head>四十七歳</head>
+<p style="#m1"><date when="1852-01-01" when-custom="嘉永4年12月10日">十二月十日</date>、公儀
+<lb/>より銀五枚拝領</p>
+<note style="color:red;#9" xml:id="note15_01">三 <anchor xml:id="cn15_03_s"/><date when="1851-04-29" when-custom="嘉永4年3月28日">三月二十八日</date>、長子<persName corresp="#渋江恒善">恒善</persName>
+<lb/>老公<note rend="割注"><persName corresp="#津軽信順">信<milestone unit="wbr"/>順</persName></note>に近侍す。<anchor xml:id="cn15_03_e"/>
+<lb/>一 <anchor xml:id="cn15_04_s"/><date when="1851-03-06" when-custom="嘉永4年2月4日">二月四日</date>、<persName corresp="#渋江棠子">棠子</persName>死す、<note rend="割注">七<milestone unit="wbr"/>歳</note><anchor xml:id="cn15_04_e"/>
+<lb/>二 <anchor xml:id="cn15_05_s"/><date when="1851-03-17" when-custom="嘉永4年2月15日">二月十五日</date>、<persName corresp="#渋江癸巳子">癸巳子</persName>死す、<note style="color:red" place="bottom" corresp="#note15_01">是れ皆天然痘也</note></note><anchor xml:id="cn15_05_e"/>
+<anchor xml:id="cn15_06_s"/><note place="top">従來邸宅ハ神田お玉が池に在りしが、<date when="1851" when-custom="嘉永4年">此年</date>本所御臺所町へ移り、お玉ヶ池を別邸とす。</note><anchor xml:id="cn15_06_e"/></div>
+
+<pb n="28" corresp="#zone_030" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6994/2128,0,2128,3308/full/0/default.jpg"/>
+<div><note style="color:red;#m10" rend="割注">三<milestone unit="wbr"/>歳</note>
+<p><anchor xml:id="cn16_01_s"/><date when="1851-07-10" when-custom="嘉永4年6月12日">六月十二日</date>、次子<persName corresp="#渋江優善">優善</persName><persName corresp="#矢鳥玄碩">矢
+<lb/>鳥玄碩</persName>の末期養子とな
+<lb/>る、
+<note rend="割注">地行二<milestone unit="wbr"/>百石
+<note rend="割注">外に八人<milestone unit="wbr"/>扶持</note><anchor xml:id="cn16_01_e"/>
+</note>
+</p>
+</div>
+<div>
+<head style="#m3">
+<date when="1852" when-custom="嘉永5年">嘉永五年壬子</date>
+</head>
+<head>四十八歳</head>
+<p style="#m3">
+<lb/><date when="1853" when-custom="嘉永6年12月10日">十二月十日</date>、公儀よ
+<lb/>り銀五枚拝領
+</p>
+<anchor xml:id="cn16_02_s"/><note xml:id="note16_01" style="color:red;#m10">
+<date when="1853-06-05" when-custom="嘉永6年4月29日">四月二十九日</date><persName corresp="渋江恒善">恒善</persName><note rend="割注">二十<milestone unit="wbr"/>七</note>
+<lb/>幕府<persName corresp="田口儀三郎">田口儀三郎</persName>養女<persName corresp="田口糸子"><ruby><rb>糸</rb><rt place="right">いと</rt></ruby>
+<lb/>子</persName>を娶る<anchor xml:id="cn16_02_e"/>
+<lb/><anchor xml:id="cn16_03_s"/><date when="1853-06-24" when-custom="嘉永6年5月18日">五月十八日</date>、<persName corresp="渋江恒善">恒善</persName>、勤料三
+<lb/>人扶持領す</note><anchor xml:id="cn16_03_e"/>
+<note style="red" place="bottom" corresp="#note16_01">
+<lb/><persName corresp="田口糸子">糸子</persName>
+<lb/>は、後
+<lb/>年<persName corresp="渋江恒善">恒
+<lb/>善</persName>の
+<lb/>死後、
+<lb/><persName corresp="渋江抽斎">抽齋</persName>
+<lb/>之を
+<lb/>養女
+<lb/>として
+<lb/>幕臣
+<lb/><persName corresp="有馬宗智">有馬
+<lb/>宗智</persName>へ
+<lb/>嫁せしむ
+</note>
+</div>
+
+<pb n="29" corresp="#zone_031" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6994/0,0,2128,3308/full/0/default.jpg"/>
+<div>
+<head style="#m3"><date when="1853" when-custom="嘉永6年">嘉永六年癸丑</date></head>
+<head>四十九歳</head>
+<p xml:id="note16_02" style="#m1">
+<lb/><date when="1854-01-15" when-custom="嘉永6年12月十17日">十二月十七日</date>
+<lb/>より銀五枚拝領
+</p>
+<note style="red;#m10">
+<lb/>正月十九日<persName corresp="渋江水木子"><ruby><rb>水木</rb><rt place="right">みき</rt></ruby>子</persName>生れ、
+<lb/>（<date when="1901" when-custom="明治34年">明治三十四年</date>死去
+<lb/>享年四十九）
+</note>
+</div>
+<div>
+<head style="#m3"><date when="1855" when-custom="安政1年">安政元年甲寅</date></head>
+<head>五十歳</head>
+<p style="#m1">
+<lb/><date when="1855-02-05" when-custom="安政1年12月19日">十二月十九日</date>、公儀よ
+<lb/>り銀五枚拝領
+<lb/><anchor xml:id="cn16_04_s"/><date when="1855-02-15" when-custom="安政1年12月29日">十二月廿九日</date>医学
+<lb/>館医学書彫刻手伝を命せらる<anchor xml:id="cn16_04_e"/>
+</p>
+<note style="color:red;#m10"><anchor xml:id="cn16_05_s"/><date when="1854-03-12" when-custom="安政1年2月14日">二月十四日</date>、専六生る<anchor xml:id="cn16_05_e"/>、（<note rend="割注"><date when="1908-04-14" when-custom="明治41年4月14日">明<milestone unit="wbr"/>治
+<lb/>四十一年四月十四日</date><milestone unit="wbr"/>死す、享年五十五
+</note>）
+<lb/><anchor xml:id="cn16_06_s"/><date when="1854-04-07" when-custom="安政1年3月10日">三月十日</date>、長子<persName corresp="#恒善">恒善</persName>死す<anchor xml:id="cn16_06_e"/>。
+<lb/>享年二十九
+</note>
+<note hand="#ougai" place="top" corresp="#note16_02">
+<lb/>銀五枚拝
+<lb/>領之儀此
+<lb/>年以後、
+<lb/>記録なき
+<lb/>故、判然せざ
+<lb/>れども想ふに
+<lb/>年々拝領
+<lb/>せしならん
+</note>
+
+<pb n="30" corresp="#zone_032" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6995/2128,0,2128,3308/full/0/default.jpg"/>
+            <p style="#m1"><lb/><anchor xml:id="cn17_01_s"/><date when="1855-02-12" when-custom="安政1年12月26日">十二月二十六日</date>、於醫学舘、講書年來出精致候
+            <lb/>に付き、五人扶持被下置候旨、公辺より被仰付、</p>
+            <p style="#m2"><lb/>（先年の十五人扶持ハ終身の扶持にて、此の
+            <lb/>五人扶持ハ、講師勤務中の扶持也、<anchor xml:id="cn17_01_e"/>）</p>
+        </div>
+        <div>
+            <head style="#m3"><date when="1855" when-custom="安政2年">安政二年乙卯</date></head>
+            <head>五十一歳</head>
+            <note style="color:red;#m10">
+                <lb/><anchor xml:id="cn17_02_s"/><date when="1855-05-05" when-custom="安政2年3月19日">三月十九日</date><persName corresp="#渋江翠暫">翠暫</persName>生る、（<note rend="割注">慶<milestone unit="wbr"/>応</note>
+                <lb/><note rend="割注"><date when="1865-08-11" when-custom="慶応1年6月20日">元年乙丑六月二十日</date><milestone unit="wbr"/>死す、享年十一</note>）<anchor xml:id="cn17_02_e"/>
+            </note>
+            <note style="color:red" corresp="#note17_01">訂正<add>国勝手の事</add>是れハ<date when="1856" when-custom="安政3年">翌三年丙辰</date>也</note>
+
+            <p xml:id="note17_01" style="#m2">
+                <lb/><anchor xml:id="cn17_03_s"/>（此頃、建議して藩士一同、甲冑を所有せしむ
+                <lb/>ることとし、<anchor xml:id="cn17_03_e"/><anchor xml:id="cn17_04_s"/>又藩侯一家、并に藩士江戸定府の
+                <lb/>もの悉く國勝手に為さしめんとせり、<anchor xml:id="cn17_04_e"/>委し
+
+        <pb n="31" corresp="#zone_033" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6995/0,0,2128,3308/full/0/default.jpg"/>
+                <lb/>くハ別冊に載す、）
+            </p>           
+            <p style="#m5">
+                <note style="color:red" place="above"><date when="1855-11-11" when-custom="安政2年10月2日">十月二日</date>亥刻</note>
+                <lb/><anchor xml:id="cn17_05_s"/>[此の年、大地震。本所の邸宅、<del>震災に罹
+                <lb/>る</del><add style="color:red" place="right">罹災</add>、従來<persName corresp="#渋江抽斎">抽齋</persName>一切冷酒を用ゐざりし
+                <lb/>が、此の時始めて之を用ゆ、是れも別
+                <lb/>冊に委し、<anchor xml:id="cn17_05_e"/>］
+            </p>
+        </div>
+        <div>
+            <head style="#m3"><date when="1856">安政三年丙辰</date></head>
+            <head>五十二歳</head>
+        </div>
+        <div>
+            <head style="#m3"><date when="1857">安政四年丁巳</date></head>
+            <head>五十三歳</head>
+                <note style="color:red" place="top"><lb/><date when="1857-03-09" when-custom="安政4年2月14日">二月十四
+                <lb/>日</date>、<persName corresp="#多紀元堅">多紀
+                <lb/>樂眞院
+                <lb/>法印(茝
+                <lb/>庭)</persName>没す</note>
+                <note style="color:red;#m10"><date when="1857-09-14" when-custom="安政4年7月26日">七月二十六日</date>、<persName corresp="#渋江保"><ruby><rb>成善</rb><rt>しげよし</rt></ruby>(保)</persName>生
+                る、（<note rend="割注"><date when="1858-02-11" when-custom="安政4年12月28日">十二月二十八日</date>、<milestone unit="wbr"/>嫡子願濟</note>）</note>
+                <note style="color:red" place="bottom"><date when="1857-08-17" when-custom="安政4年6月28日">六月二
+                <lb/>十八日</date>、<persName corresp="#津軽承昭">細川<ruby><rb>寛</rb><rt>のぶ</rt></ruby>
+                <lb/>五郎君</persName>、
+                <lb/>藩主の聟養子と為る、（十
+
+<pb n="32" corresp="#zone_034" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6996/2128,0,2128,3308/full/0/default.jpg"/>
+<lb/>七歳)
+<lb/>今の正二位伯
+<lb/>爵
+<lb/><persName corresp="#津軽承昭">承昭
+<lb/>君</persName>也</note></div>
+   <div><head style="#m3"><date when="1858" when-custom="安政5年">安政五年戊午</date></head>
+   <lb/><head>五十四歳</head>
+   <note place="top" style="color:red">八月八日温恭公(十三
+   <lb/>代将軍家定)薨去</note>
+   <note><anchor xml:id="cn18_01_s"/>二月二十八日、<persName corresp="#渋江保">成善</persName>始め
+   <lb/>て君公に 御目見<anchor xml:id="cn18_01_e"/>
+   <lb/>五月十七日<persName corresp="渋江幸子">幸子</persName>生る、七
+   <lb/>月六日死す、</note>
+   <p>八月二十九日、本所御臺所町の邸宅に没す、
+   <lb/>勤務三十七年、医学館講師勤務十五年、
+   <lb/>谷中感応寺に葬る
+   <lb/>(遺命して、<persName corresp="#渋江保">成善</persName>を<persName corresp="#海保漁村">海保漁村</persName>に学はしめ、且つ
+	   
+<pb n="33" corresp="#zone_035" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6996/0,0,2128,3308/full/0/default.jpg"/>
+   <lb/><persName corresp="小島成斎">小島成斎</persName>に就て老子を。又<persName corresp="多紀安琢">多紀養春院</persName>に就
+   <lb/>て素問を研究せしめんとす、)〔<persName corresp="#渋江保">成善</persName>、万延元年
+   <lb/>庚申、<persName corresp="#海保漁村">海保</persName>、<persName corresp="小島成斎">小島</persName>の門に入り、慶応元年乙丑、<persName corresp="多紀安琢">多
+   <lb/>紀</persName>の門に入る、遺命に従へるなり、<note rend="割注">其の後の<milestone unit="wbr"/>事ハ省く</note>
+   </p></div>
+   <div>
+   <head>〇万延元年庚申建碑</head>
+   <p style="#m1"><anchor xml:id="cn18_02_s"/>是れより先き、抽斎生前に、幕府医師<persName corresp="喜多村安斎">喜多村安
+   <lb/>斎</persName>(<persName corresp="栗本鋤雲">栗本鋤雲翁</persName>の兄)出版の活版薄葉刷 「医方類
+   <lb/>聚」を藩主へ献納することと為し、多年毎月出版
+   <lb/>出来毎に五冊ヅ、献納したり、抽斎没後も猶
+	   
+<pb n="34" corresp="#zone_036" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6997/2128,0,2128,3308/full/0/default.jpg"/>
+<lb/>引續き献納し來りしが<date when="1862" when-custom="文久2年">文久二年壬戌</date>全く献
+<lb/>納申終りしに付き、<date when="1862-09-08" when-custom="文久2年8月15日">同年八月十五日</date>、嗣子<persName corresp="#渋江保">成善</persName>
+<lb/>藩の重臣より左の<add place="left">如く</add>申渡されたり</p>
+<p style="#m2"><lb/>御自分儀、年來心掛ケ、醫方類聚自分物入を
+<lb/>以、出來差上奇特ニ付、為御賞賜、
+<lb/>御召御紋御羽織并御酒御吸物被下置之、<anchor xml:id="cn18_02_e"/></p>
+<p style="#m5"><lb/><date when="1862-09-08" when-custom="文久2年8月15日">八月十五日</date></p>
+<p style="#m4"><lb/>（是れ亦<persName corresp="#渋江抽斎">抽齋</persName>遺業<note type="割注">と仰山に申<milestone unit="wbr"/>程でもなけれども</note>の一な
+<lb/>り、）</p><note><persName corresp="#渋江保">成善</persName>時に六歳</note>
+</div></body>
+      <back>
+      <listPerson>
+         <person xml:id="渋江抽斎">
+            <persName>
+            <surname>渋江</surname><forename>抽斎</forename></persName>
+            <idno type="VIAF">https://viaf.org/viaf/18576420</idno>
+            <birth>文化2年11月8日</birth>
+            <death>安政5年8月29日</death>
+         </person>
+         <person xml:id="渋江允成">
+            <persName>
+            <surname>渋江</surname><forename>允成</forename>
+            </persName>
+            <note><p>渋江抽斎の父。</p></note>
+         </person>
+         <person>
+            <persName xml:id="渋江早太">
+            <surname>渋江</surname><forename>早太</forename>
+            </persName>
+            <note><p>渋江允成の母、渋江抽斎の祖母。</p></note>
+         </person>
+	<person xml:id="岩田縫子">
+	    <persName><surname>渋江</surname><forename>縫子</forename></persName>
+	    <persName type="旧名"><surname>岩田</surname><forename>縫子</forename></persName>
+	    <persName type="法名">壽松</persName>
+            <birth>安永4年</birth>
+            <death>文政12年</death>
+	    <note><p>渋江抽斎の母。旧姓は岩田。文政七年七月朔日に剃髪して、壽松に改める。</p></note>
+	</person>
+          <person xml:id="渋江須磨子">
+            <persName><surname>渋江</surname><forename>須磨子</forename></persName>
+			<persName><surname>飯田</surname><forename>須磨子</forename></persName>  
+            <birth>享和2年</birth>
+            <death>文政9年</death>
+            <note><p>渋江抽斎の姉。</p></note>
+         </person>
+         <person xml:id="渋江逸子">
+            <persName><surname>渋江</surname><forename>逸子</forename></persName>
+            <birth>寛政4年2月</birth>
+            <death>寛政6年</death>
+            <note><p>渋江抽斎の姉。3歳で夭逝。母は寄合戸田政五郎家来納戸役金七両十二人扶持川崎丈助の女。</p></note>
+         </person>
+         <person xml:id="曇華水子">
+            <persName>曇華水子</persName>
+            <birth>文化8年閏2月14日</birth>
+            <death>文化8年閏2月14日</death>
+            <note><p>死産した渋江抽斎の妹。母は岩田縫子。</p></note>
+         </person>
+	 <person xml:id="尾島定子">
+	    <persName><surname>尾島</surname><forename>定子</forename></persName>
+	    <persName type="別名"><surname>岩田</surname><forename>百合</forename></persName>
+            <birth>文政12年</birth>
+            <death>文化4年-</death>
+	    <note><p>渋江抽斎の一人目の妻。尾島忠助の娘。</p></note>
+	</person>
+	 <person xml:id="比良野威能">
+	    <persName><surname>比良野</surname><forename>威能</forename></persName>
+            <birth>享和2年</birth>
+            <death>天保2年</death>
+	    <note><p>渋江抽斎の二人目の妻。比良野文藏の娘。</p></note>
+	</person>
+           <person xml:id="岡西徳子">
+            <persName><surname>岡西</surname><forename>徳子</forename></persName>
+            <death>弘化元年</death>
+            <note><p>渋江抽斎の三人目の妻。岡西栄玄の娘。</p></note>
+         </person>
+          <person xml:id="山内五百子">
+            <persName><surname>山内</surname><forename>五百子</forename></persName>
+            <birth>文化3年</birth>
+            <death>明治十七年二月十四日</death>
+            <note><p>渋江抽斎の四人目の妻。山内忠兵衛の娘。</p></note>
+         </person>
+         <person xml:id="渋江恒善">
+	    <persName><surname>渋江</surname><forename>恒善</forename></persName>
+            <birth>大政9年</birth>
+            <death>安政元年</death>
+	    <note><p>渋江抽斎と尾島定子の子。長男。</p></note>
+	</person>
+         <person xml:id="渋江純子">
+            <persName><surname>渋江</surname><forename>純子</forename></persName>
+            <birth>天保2年</birth>
+            <death>嘉永3年</death>
+            <note><p>渋江抽斎と比良野威能の子。長女。夫は馬場玄玖。</p></note>
+         </person>
+        <person xml:id="渋江優善">
+            <persName><surname>渋江</surname><forename>優善</forename></persName>
+            <birth>天保6年</birth>
+            <death>明治16年</death>
+            <note><p>渋江抽斎と岡西徳子の子。次男。</p></note>
+        </person>
+        <person xml:id="渋江八三郎">
+            <persName><surname>渋江</surname><forename>八三郎</forename></persName>
+            <birth>天保12年8月3日</birth>
+            <note><p>渋江抽斎と岡西徳子の子。三男。</p></note>
+        </person>
+        <person xml:id="渋江好子">
+            <persName><surname>渋江</surname><forename>好子</forename></persName>
+            <birth>天保12年閏正月26日</birth>
+            <note><p>渋江抽斎と岡西徳子の子。次女。</p></note>
+        </person>
+	<person xml:id="幻香水子">
+	    <persName>幻香水子</persName>
+            <birth>弘化3年10月19日</birth>
+            <death>弘化3年10月19日</death>
+	    <note><p>渋江抽斎と山内五百の子。水子。四男。</p></note>
+	</person>
+         <person xml:id="渋江翠暫">
+            <persName><surname>渋江</surname><forename>翠暫</forename></persName>
+            <birth>安政2年3月19日</birth>
+            <death>慶応元年6月20日</death>
+            <note><p>渋江抽斎と山内五百の子。六男。</p></note>
+         </person>
+         <person xml:id="渋江保">
+            <persName><surname>渋江</surname><forename>保</forename></persName>
+            <persName><surname>渋江</surname><forename>成善</forename></persName>           
+            <birth>安政4年7月26日</birth>
+            <death>昭和5年4月7日</death>
+            <note><p>渋江抽斎と山内五百の子。七男。</p></note>
+            <idno type="VIAF">https://viaf.org/ja/viaf/258955741</idno>
+         </person>
+	<person xml:id="渋江棠子">
+	    <persName><surname>渋江</surname><forename>棠子</forename></persName>
+            <birth>弘化2年11月26日</birth>
+            <death>嘉永4年2月4日</death>
+	    <note><p>渋江抽斎と山内五百の子。三女。</p></note>
+	</person>
+	<person xml:id="渋江陸子">
+	    <persName><surname>渋江</surname><forename>陸子</forename></persName>
+            <birth>弘化4年10月8日</birth>
+	    <note><p>渋江抽斎と山内五百の子。四女。</p></note>
+	</person>
+	<person xml:id="渋江癸巳子">
+	    <persName><surname>渋江</surname><forename>癸巳子</forename></persName>
+            <birth>嘉永2年8月28日</birth>
+            <death>嘉永4年2月15日</death>
+	    <note><p>渋江抽斎と山内五百の子。五女。</p></note>
+	</person>
+		  <person xml:id="渋江水木子">
+	    <persName><surname>渋江</surname><forename>水木子</forename></persName>
+            <birth>嘉永6年1月19日</birth>
+            <death>明治34年</death>
+	    <note><p>渋江抽斎と山内五百の子。六女。</p></note>
+	</person>
+	<person xml:id="渋江幸子">
+	    <persName><surname>渋江</surname><forename>幸子</forename></persName>
+            <birth>安政5年5月17日</birth>
+	    <note><p>渋江抽斎と山内五百の子。七女。</p></note>
+	</person>
+	<person xml:id="尾島忠助">
+	    <persName><surname>尾島</surname><forename>忠助</forename></persName>
+	    <note><p>下野国浪士。尾島定子の父。</p></note>
+	</person>
+	<person xml:id="比良野文藏">
+	    <persName><surname>比良野</surname><forename>文藏</forename></persName>
+            <birth>安永9年</birth>
+            <death>嘉永3年</death>
+	    <note><p>津軽藩留守居役。比良野威能の父。</p></note>
+	</person>
+	<person xml:id="山内忠兵衛">
+	    <persName><surname>山内</surname><forename>忠兵衛</forename></persName>
+            <death>天保10年</death>
+	    <note><p>神田紺屋町鉄問屋。山内五百の父。</p></note>
+	</person>
+	<person xml:id="飯田四郎左衛門良清">
+	    <persName><surname>飯田四郎左衛門</surname><forename>良清</forename></persName>
+	    <note><p>渋江須磨子の夫。</p></note>
+	</person>
+	<person xml:id="馬場玄玖">
+	    <persName><surname>馬場</surname><forename>玄玖</forename></persName>
+	    <note><p>幕臣。渋江純子の夫。</p></note>
+	</person>
+	<person xml:id="津軽信明">
+            <persName>
+               <surname>津軽</surname><forename>信明</forename>
+            </persName>
+            <birth>宝暦12年6月22日</birth>
+            <death>寛政3年6月22日</death>
+            <note><p>弘前藩8代藩主。</p></note>
+         </person>
+	<person xml:id="眞壽院">
+            <persName>眞壽院</persName>
+            <birth>延享9年</birth>
+            <death>文化6年</death>
+            <note><p>津軽信明の妻。</p></note>
+         </person>
+		  <person xml:id="田口糸子">
+            <persName>
+				<surname>田口</surname><forename>糸子</forename>
+			</persName>
+            <note><p>渋江恒善の妻。のち有馬宗智の妻。</p></note>
+         </person>
+<person xml:id="田口儀三郎">
+            <persName>
+				<surname>田口</surname><forename>儀三郎</forename>
+			</persName>
+            <note><p>田口糸子の父。渋江恒善の義父。二の丸火の番六十俵。</p></note>
+         </person>
+		  <person xml:id="有馬宗智">
+            <persName>
+				<surname>有馬</surname><forename>宗智</forename>
+			</persName>
+            <note><p>田口糸子の夫。</p></note>
+         </person>
+         <person xml:id="津軽寧親">
+            <persName>
+               <surname>津軽</surname><forename>寧親</forename>
+            </persName>
+            <birth>明和2年1月17日</birth>
+            <death>天保4年6月14日</death>
+            <note><p>弘前藩9代藩主。</p></note>
+         </person>
+         <person xml:id="津軽信順">
+            <persName>
+               <surname>津軽</surname><forename>信順</forename>
+            </persName>
+            <birth>寛政12年3月25日</birth>
+            <death>文久2年10月14日</death>
+            <note><p>弘前藩10代藩主。</p></note>
+         </person>
+         <person xml:id="津軽順承">
+            <persName>
+               <surname>津軽</surname><forename>順承</forename>
+            </persName>
+            <note><p>弘前藩11代藩主。</p></note>
+         </person>
+         <person xml:id="津軽承昭">
+            <persName>
+                <surname>津軽</surname><forename>承昭</forename>
+                <addName type="幼名">寛五郎</addName>
+            </persName>
+            <birth>天保11年8月12日</birth>
+            <death>大正5年7月19日</death>
+            <note><p>弘前藩12代藩主。熊本藩主細川斉護の四男。</p></note>
+         </person>
+         <person xml:id="牧野忠雅">
+            <persName>
+                <surname>牧野</surname><roleName>備前守</roleName><forename>忠雅</forename></persName>
+            <birth>寛政11年</birth>
+            <death>安政5年</death>
+            <note><p>越後長岡藩第10代藩主。備前守。老中。</p></note>
+         </person>
+         <person xml:id="土井利位">
+            <persName>
+               <surname>土井</surname><forename>利位</forename></persName>
+            <birth>寛政元年5月22日</birth>
+            <death>嘉永元年7月2日</death>
+            <note><p>古河藩主。土井家宗家11代。</p></note>
+            <idno type="VIAF">http://viaf.org/viaf/251432551</idno>
+         </person>
+	<person xml:id="伊沢蘭軒">
+            <persName><surname>伊沢</surname><forename>蘭軒</forename></persName>
+            <birth>安永6年11月11日</birth>
+            <death>文政12年3月17日</death>
+	    <note><p>医師、儒学者。渋江抽斎の師。文化十一年に抽斎入門。</p></note>
+         </person>
+	<person xml:id="市野迷庵">
+            <persName><surname>市野</surname><forename>迷庵</forename></persName>
+            <birth>明和2年2月10日</birth>
+            <death>文政9年8月14日</death>
+	    <note><p>儒学者、考証学者。渋江抽斎の師。</p></note>
+         </person>
+	<person xml:id="池田京水">
+            <persName><surname>池田</surname><forename>京水</forename></persName>
+            <birth>天明6年</birth>
+            <death>天保7年</death>
+	    <note><p>渋江抽斎の師。文化十一年に抽斎入門。</p></note>
+         </person>
+	<person xml:id="狩谷棭斎">
+            <persName><surname>狩谷</surname><forename>棭斎</forename></persName>
+            <birth>安永4年12月1日</birth>
+            <death>天保6年閏7月4日</death>
+            <idno type="VIAF">http://viaf.org/viaf/1346286</idno>
+	    <note><p>江戸時代後期の考証学者。</p></note>
+         </person>
+	<person xml:id="谷文晁">
+            <persName><surname>谷</surname><forename>文晁</forename></persName>
+            <birth>宝暦13年9月9日</birth>
+            <death>天保11年12月14日</death>
+      <idno type="VIAF">http://viaf.org/viaf/96575357</idno>
+	    <note><p>江戸時代後期の画家</p></note>
+         </person>
+         <person xml:id="森立之">
+            <persName>
+            <surname>森</surname><forename>立之</forename></persName>
+            <birth>文化4年11月25日</birth>
+            <death>明治18年12月6日</death>
+            <note><p>医師、書誌学者。渋江抽斎の弟子。</p></note>
+            <idno type="VIAF">https://viaf.org/viaf/44186331</idno>
+         </person>
+         <person xml:id="海保漁村">
+            <persName>
+            <surname>海保</surname><forename>漁村</forename></persName>
+            <birth>寛政10年11月22日</birth>
+            <death>慶応2年9月18日</death>
+            <note><p>儒学者。</p></note>            
+         </person>
+         <person xml:id="海保竹逕">
+            <persName><surname>海保</surname><forename>竹逕</forename></persName>
+            <birth>文政7年</birth>
+            <death>明治8年</death>
+            <note><p>海保漁村の娘婿。</p></note>            
+      <idno type="VIAF">http://viaf.org/viaf/219146997403518892873</idno>
+         </person>
+         <person xml:id="小島成斎">
+            <persName><surname>小島</surname><forename>成斎</forename></persName>
+            <birth>寛政8年12月20日</birth>
+            <death>文久2年10月18日</death>
+      <idno type="VIAF">http://viaf.org/viaf/111036380</idno>
+            <note><p>書家、儒家。</p></note>            
+         </person>
+         <person xml:id="多紀安琢">
+            <persName><surname>多紀</surname><forename>安琢</forename></persName>
+            <persName type="号">養春院</persName>
+            <birth>文政7年</birth>
+            <death>明治9年1月4日</death>
+            <note><p>医師。</p></note>            
+         </person>
+         <person xml:id="平井東堂">
+            <persName><surname>平井</surname><forename>東堂</forename></persName>
+            <birth>文化11年</birth>
+            <death>明治5年</death>
+            <note><p>津軽藩留守居役。書家。</p></note>            
+         </person>
+         <person xml:id="喜多村安斎">
+            <persName type="通称"><surname>喜多村</surname><forename>安斎</forename></persName> 
+            <persName type="本名"><surname>喜多村</surname><forename>栲窓</forename></persName> 
+            <birth>文化元年</birth>
+            <death>明治9年</death>
+            <note><p>医官。</p></note>  
+      <idno type="VIAF">http://viaf.org/viaf/19065741</idno>          
+         </person>
+         <person xml:id="島田篁村">
+            <persName><surname>島田</surname><forename>篁村</forename></persName>
+            <persName type="諱">重礼</persName>
+            <birth>天保9年</birth>
+            <death>明治31年8月27日</death>
+            <note><p>漢学者。</p></note>   
+            <idno type="VIAF">https://viaf.org/ja/viaf/51569195</idno>         
+         </person>
+         <person xml:id="多紀元堅">
+            <persName><surname>多紀</surname><forename>元堅</forename></persName>
+            <persName type="号">茝庭</persName>
+            <persName type="法名">楽真院</persName>
+            <birth>寛政7年</birth>
+            <death>安政4年2月14日</death>
+	         <note><p>幕府医官。</p></note>
+            <idno type="VIAF">http://viaf.org/viaf/67842840</idno>
+         </person>    
+         <person xml:id="栗本鋤雲">
+            <persName><surname>栗本</surname><forename>鋤雲</forename></persName>
+            <idno type="VIAF">http://viaf.org/viaf/58067695</idno>
+         </person>
+         <person xml:id="欽姫">
+            <persName>欽姫</persName>
+            <note><p>弘前藩10代藩主津軽信順の正室。徳川斉匡の九女。</p></note>
+         </person>
+         <person xml:id="岡西栄玄">
+            <persName><surname>岡西</surname><forename>栄玄</forename></persName>
+            <note><p>岡西徳子の父。</p></note>
+         </person>
+         <person xml:id="相馬大作">
+            <persName><surname>相馬</surname><forename>大作</forename></persName>
+            <persName type="本名"><surname>下斗米</surname><forename>秀之進</forename></persName>
+            <idno type="VIAF">http://viaf.org/viaf/256241934</idno>
+         </person>
+         <person xml:id="矢島玄碩">
+            <persName><surname>矢島</surname><forename>玄碩</forename></persName>
+            <note><p>津軽家医官。</p></note>
+         </person>
+      </listPerson>
+      </back>
+      </text>
+</TEI>
