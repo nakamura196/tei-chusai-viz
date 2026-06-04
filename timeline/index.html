@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登場タイムライン｜抽斎年譜 TEI ビジュアライザ</title>
+  <meta name="description" content="主要人物が抽斎の生涯（1805–1862）のどの年に年譜へ登場するかを示すタイムライン。記述の濃淡や人間関係の推移を追えます。">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#9c530f">
+  <link rel="canonical" href="https://nakamura196.github.io/tei-chusai-viz/timeline/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="抽斎年譜 TEI ビジュアライザ">
+  <meta property="og:title" content="登場タイムライン｜抽斎年譜 TEI ビジュアライザ">
+  <meta property="og:description" content="主要人物が抽斎の生涯（1805–1862）のどの年に年譜へ登場するかを示すタイムライン。">
+  <meta property="og:url" content="https://nakamura196.github.io/tei-chusai-viz/timeline/">
+  <meta property="og:image" content="https://nakamura196.github.io/tei-chusai-viz/assets/og-timeline.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="登場タイムライン｜抽斎年譜 TEI ビジュアライザ">
+  <meta name="twitter:description" content="主要人物が抽斎の生涯（1805–1862）のどの年に年譜へ登場するかを示すタイムライン。">
+  <meta name="twitter:image" content="https://nakamura196.github.io/tei-chusai-viz/assets/og-timeline.png">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="topnav">
+      <a href="../">概要</a>
+      <a href="../network/">人物ネットワーク</a>
+      <a href="../timeline/" aria-current="page">登場タイムライン</a>
+      <a href="../parallel/">年譜⇔渋江抽斎 対訳</a>
+    </nav>
+    <h1>登場タイムライン</h1>
+    <p class="subtitle">主要人物が抽斎の生涯（1805–1862）のどの年に年譜へ登場するかを示すタイムライン。記述の濃淡や人間関係の推移を追えます。</p>
+    <div id="status" role="status" aria-live="polite"></div>
+  </header>
+  <main id="view"></main>
+  <footer>
+    <p>データ出典: <a href="https://github.com/dhlibrarianstudygroup/tei_chuusainenpu_public" target="_blank" rel="noopener">若手図書館員DH勉強会『抽斎年譜』TEI/XML</a>（<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>）。
+    解釈上の限界・既知のデータ課題は <a href="../#data">概要ページのデータ注記</a> を参照。</p>
+  </footer>
+  <script>window.CHUSAI = { view: "timeline", base: "../" };</script>
+  <script src="../vendor/d3.v7.9.0.min.js"></script>
+  <script type="module" src="../js/app.js"></script>
+</body>
+</html>

@@ -95,32 +95,63 @@
       若手図書館員DH勉強会『抽斎年譜』TEI/XML（CC BY 4.0）の<strong>二次利用例</strong>。
       同じデータから、人物の関係・登場・本文対応を別の角度で可視化します。
     </p>
-    <nav id="tabs"></nav>
-    <div id="status" role="status" aria-live="polite"></div>
   </header>
 
-  <main id="view"></main>
+  <main>
+    <section class="news" aria-labelledby="news-h">
+      <h2 id="news-h">お知らせ</h2>
+      <ul class="news-list">
+        <li><time datetime="2026-06-05">2026-06-05</time>　各機能を個別ページに分割し、OGP／SEO を整備しました（特定のビューを直接リンク・共有しやすくなりました）。</li>
+        <li><time datetime="2026-06-03">2026-06-03</time>　「抽斎年譜 TEI ビジュアライザ」を公開しました。</li>
+      </ul>
+    </section>
+
+    <section class="cards" aria-label="機能">
+      <a class="card" href="network/">
+        <img src="assets/og-network.png" alt="人物ネットワークのプレビュー" loading="lazy" width="1200" height="630">
+        <div class="card-body">
+          <h3>人物ネットワーク</h3>
+          <p>同じ年次に登場した人物どうしを結ぶ共起グラフ。中心人物や渋江家と弘前藩主の関係が見えます。</p>
+        </div>
+      </a>
+      <a class="card" href="timeline/">
+        <img src="assets/og-timeline.png" alt="登場タイムラインのプレビュー" loading="lazy" width="1200" height="630">
+        <div class="card-body">
+          <h3>登場タイムライン</h3>
+          <p>主要人物が抽斎の生涯（1805–1862）のどの年に登場するか。記述の濃淡や関係の推移を追えます。</p>
+        </div>
+      </a>
+      <a class="card" href="parallel/">
+        <img src="assets/og-parallel.png" alt="年譜⇔渋江抽斎 対訳のプレビュー" loading="lazy" width="1200" height="630">
+        <div class="card-body">
+          <h3>年譜⇔渋江抽斎 対訳</h3>
+          <p>『抽斎年譜』と森鷗外『渋江抽斎』の対応箇所を4列（原文＋現代語訳）で対照。</p>
+        </div>
+      </a>
+    </section>
+
+    <section id="data" class="data-notes">
+      <h2>データに関する注記</h2>
+      <p>本サイトは原データ（CC BY 4.0）を<strong>改変せず</strong>読み込み、表示側で補正・名寄せを行っています。</p>
+      <ul>
+        <li><b>解釈上の限界</b>：ネットワークの「共起」は<em>同じ年次に年譜へ登場</em>した意味で、各年内を総当たりで結ぶため記述の濃い年が機械的に多数のエッジを生みます（直接の交流・血縁ではありません）。タイムラインの点は「その年に<em>言及された</em>」ことを示し、回顧的言及（祖先の生年・子孫の没年など）を含みます。</li>
+        <li><b>現代語訳</b>：対訳の現代語訳は AI による下書きで、固有名詞・年号を含め<strong>未校閲</strong>です。</li>
+        <li><b>原データの既知課題（修正PR提出済み）</b>：和暦→西暦 <code>@when</code> の一部誤り、人物 <code>@corresp</code> の表記ゆれ・<code>#</code> 欠落、対訳アンカーの欠落など。詳細は <a href="https://github.com/nakamura196/tei-chusai-viz#データに関する注記" target="_blank" rel="noopener">README</a> および <a href="https://github.com/dhlibrarianstudygroup/tei_chuusainenpu_public/pulls" target="_blank" rel="noopener">元リポジトリへの PR</a> を参照。</li>
+      </ul>
+    </section>
+  </main>
 
   <footer>
     <p>
       データ出典:
-      <a href="https://github.com/dhlibrarianstudygroup/tei_chuusainenpu_public" target="_blank" rel="noopener">
-        若手図書館員DH勉強会『抽斎年譜』TEI/XML</a>
+      <a href="https://github.com/dhlibrarianstudygroup/tei_chuusainenpu_public" target="_blank" rel="noopener">若手図書館員DH勉強会『抽斎年譜』TEI/XML</a>
       （<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>）。
       公式ビューワ:
       <a href="https://chusaiweb-murata.netlify.app/" target="_blank" rel="noopener">TEI抽斎年譜ビューワ</a>。
-      本サイトは独立した二次利用例で、データを改変せず読み込んでいます。
-    </p>
-    <p>
-      <strong>注記</strong>：対訳の現代語訳は AI による下書き（要校閲）です。可視化は探索的な近似で、
-      共起・登場年・年次割当の解釈上の限界は各ビューの「読み取りの注意」を参照してください。
-      原データに由来する既知の課題（和暦→西暦の一部誤り、人物IDの表記ゆれ、対訳アンカーの欠落など）は
-      <a href="https://github.com/nakamura196/tei-chusai-viz#データに関する注記" target="_blank" rel="noopener">README のデータ注記</a>に整理しています。
+      ソース:
+      <a href="https://github.com/nakamura196/tei-chusai-viz" target="_blank" rel="noopener">GitHub</a>。
+      本サイトは独立した二次利用例です。
     </p>
   </footer>
-
-  <!-- 可視化ライブラリは vendoring（実行時 CDN 依存なし） -->
-  <script src="vendor/d3.v7.9.0.min.js"></script>
-  <script type="module" src="js/app.js"></script>
 </body>
 </html>
