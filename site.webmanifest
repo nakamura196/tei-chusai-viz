@@ -1,0 +1,15 @@
+{
+  "name": "抽斎年譜 TEI ビジュアライザ",
+  "short_name": "抽斎年譜Viz",
+  "description": "『抽斎年譜』TEI/XML（CC BY 4.0）の二次利用例。人物ネットワーク・登場タイムライン・対訳を可視化。",
+  "lang": "ja",
+  "start_url": "/tei-chusai-viz/",
+  "scope": "/tei-chusai-viz/",
+  "display": "standalone",
+  "background_color": "#fbfaf7",
+  "theme_color": "#9c530f",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
