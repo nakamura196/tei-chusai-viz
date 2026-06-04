@@ -54,7 +54,7 @@ export function renderTimeline(container, model, topN = 25) {
 
   rows.each(function (d) {
     const ys = [...(model.personYears.get(d.id) || [])].sort((a, b) => a - b);
-    const color = !d.person ? '#999' : d.person.viaf ? '#b5651d' : '#7a9eb1';
+    const color = !d.person ? '#999' : d.person.viaf ? '#0b8bee' : '#6db9f5';
     const viaf = d.person && d.person.viaf;
     d3.select(this).selectAll('circle').data(ys).join('circle')
       .attr('cx', (yr) => x(yr)).attr('cy', rowH / 2).attr('r', 4)

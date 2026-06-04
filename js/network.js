@@ -33,7 +33,7 @@ export function renderNetwork(container, model) {
   node.append('circle')
     .attr('r', (d) => r(d.count))
     // 未同定（listPerson未登録）=灰色＋破線、VIAF同定済=オレンジ、その他=青灰。色＋線種で冗長化。
-    .attr('fill', (d) => (!d.person ? '#d9d4cc' : d.person.viaf ? '#b5651d' : '#7a9eb1'))
+    .attr('fill', (d) => (!d.person ? '#cbd5e1' : d.person.viaf ? '#0b8bee' : '#6db9f5'))
     .attr('stroke', (d) => (!d.person ? '#999' : '#fff'))
     .attr('stroke-width', (d) => (!d.person ? 1.5 : 1.2))
     .attr('stroke-dasharray', (d) => (!d.person ? '3,2' : null));
@@ -43,7 +43,7 @@ export function renderNetwork(container, model) {
     .attr('x', (d) => r(d.count) + 3).attr('y', 4)
     .attr('font-size', 11).attr('fill', '#333')
     // 白いハロー（縁取り）で重なっても読めるように
-    .attr('stroke', '#fbfaf7').attr('stroke-width', 3).attr('paint-order', 'stroke')
+    .attr('stroke', '#ffffff').attr('stroke-width', 3).attr('paint-order', 'stroke')
     .attr('stroke-linejoin', 'round')
     .style('display', (d) => (d.count >= 3 ? null : 'none')); // 主要人物のみ常時ラベル
 
@@ -75,8 +75,8 @@ export function renderNetwork(container, model) {
   const legend = document.createElement('p');
   legend.className = 'legend';
   legend.innerHTML = `人物 ${nodes.length} 名 / 共起 ${links.length} 関係。`
-    + `円の大きさ＝登場年数、<span style="color:#b5651d">●</span> VIAF同定済み、`
-    + `<span style="color:#7a9eb1">●</span> その他、<span style="color:#999">◌</span> 未同定（破線）。`
+    + `円の大きさ＝登場年数、<span style="color:#0b8bee">●</span> VIAF同定済み、`
+    + `<span style="color:#6db9f5">●</span> その他、<span style="color:#999">◌</span> 未同定（破線）。`
     + `ノードにカーソルを合わせると詳細、ドラッグ／ズーム可。`;
   container.appendChild(legend);
 }

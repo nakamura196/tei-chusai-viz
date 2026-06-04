@@ -3,11 +3,11 @@
     .ttl{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;fill:#2b2b2b;font-weight:700;}
     .sans{font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif;}
   </style></defs>
-  <rect width="1200" height="630" fill="#fbfaf7"/>
-  <rect width="14" height="630" fill="#9c530f"/>
-  <g transform="translate(905,310)" opacity="0.95"><line x1="-180" y1="-120" x2="160" y2="-120" stroke="#d8b48f" stroke-width="3"/><g stroke="#e3cdb3" stroke-width="2"><line x1="-150" y1="-130" x2="-150" y2="150"/><line x1="-60" y1="-130" x2="-60" y2="150"/><line x1="30" y1="-130" x2="30" y2="150"/><line x1="120" y1="-130" x2="120" y2="150"/></g><g fill="#9c530f"><circle cx="-150" cy="-60" r="13"/><circle cx="30" cy="-60" r="13"/><circle cx="120" cy="-60" r="13"/><circle cx="-60" cy="20" r="13"/><circle cx="120" cy="20" r="13"/><circle cx="-150" cy="100" r="13"/><circle cx="30" cy="100" r="13"/></g><g fill="#c98a4b"><circle cx="-60" cy="-60" r="9"/><circle cx="-150" cy="20" r="9"/><circle cx="120" cy="100" r="9"/></g></g>
-  <text class="sans" x="80" y="150" font-size="30" fill="#9c530f" font-weight="700" letter-spacing="2">抽斎年譜 TEI ビジュアライザ</text>
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <rect width="14" height="630" fill="#0b8bee"/>
+  <g transform="translate(905,310)" opacity="0.95"><line x1="-180" y1="-120" x2="160" y2="-120" stroke="#9dd1f8" stroke-width="3"/><g stroke="#cee8fc" stroke-width="2"><line x1="-150" y1="-130" x2="-150" y2="150"/><line x1="-60" y1="-130" x2="-60" y2="150"/><line x1="30" y1="-130" x2="30" y2="150"/><line x1="120" y1="-130" x2="120" y2="150"/></g><g fill="#0b8bee"><circle cx="-150" cy="-60" r="13"/><circle cx="30" cy="-60" r="13"/><circle cx="120" cy="-60" r="13"/><circle cx="-60" cy="20" r="13"/><circle cx="120" cy="20" r="13"/><circle cx="-150" cy="100" r="13"/><circle cx="30" cy="100" r="13"/></g><g fill="#6db9f5"><circle cx="-60" cy="-60" r="9"/><circle cx="-150" cy="20" r="9"/><circle cx="120" cy="100" r="9"/></g></g>
+  <text class="sans" x="80" y="150" font-size="30" fill="#0b8bee" font-weight="700" letter-spacing="2">抽斎年譜 TEI ビジュアライザ</text>
   <text class="ttl" x="78" y="270" font-size="84">登場タイムライン</text>
   <text class="sans" x="80" y="360" font-size="29" fill="#444">若手図書館員DH勉強会『抽斎年譜』TEI/XML を可視化</text>
-  <text class="sans" x="80" y="556" font-size="26" fill="#9c530f" font-weight="700">nakamura196.github.io/tei-chusai-viz/timeline/</text>
+  <text class="sans" x="80" y="556" font-size="26" fill="#0b8bee" font-weight="700">nakamura196.github.io/tei-chusai-viz/timeline/</text>
 </svg>

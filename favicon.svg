@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="抽斎年譜 TEI ビジュアライザ">
-  <rect width="64" height="64" rx="13" fill="#9c530f"/>
-  <g stroke="#fbeede" stroke-width="2.4" opacity="0.85">
+  <rect width="64" height="64" rx="13" fill="#0b8bee"/>
+  <g stroke="#ffffff" stroke-width="2.4" opacity="0.85">
     <line x1="32" y1="30" x2="16" y2="17"/>
     <line x1="32" y1="30" x2="49" y2="19"/>
     <line x1="32" y1="30" x2="20" y2="48"/>
     <line x1="32" y1="30" x2="47" y2="46"/>
     <line x1="16" y1="17" x2="20" y2="48"/>
   </g>
-  <g fill="#fdf6ea">
+  <g fill="#ffffff">
     <circle cx="32" cy="30" r="7"/>
     <circle cx="16" cy="17" r="4.2"/>
     <circle cx="49" cy="19" r="4.2"/>
