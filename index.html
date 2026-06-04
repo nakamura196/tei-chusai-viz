@@ -39,23 +39,50 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "抽斎年譜 TEI ビジュアライザ",
-    "url": "https://nakamura196.github.io/tei-chusai-viz/",
-    "applicationCategory": "EducationApplication",
-    "operatingSystem": "Web",
-    "inLanguage": "ja",
-    "isAccessibleForFree": true,
-    "author": { "@type": "Person", "name": "中村覚", "alternateName": "Satoru Nakamura" },
-    "description": "『抽斎年譜』TEI/XML（CC BY 4.0）を二次利用し、人物ネットワーク・登場タイムライン・年譜⇔渋江抽斎の対訳を可視化する静的サイト。",
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "isBasedOn": {
-      "@type": "Dataset",
-      "name": "『抽斎年譜』TEI/XML",
-      "creator": { "@type": "Organization", "name": "若手図書館員DH勉強会" },
-      "license": "https://creativecommons.org/licenses/by/4.0/",
-      "url": "https://github.com/dhlibrarianstudygroup/tei_chuusainenpu_public"
-    }
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://nakamura196.github.io/tei-chusai-viz/#app",
+        "name": "抽斎年譜 TEI ビジュアライザ",
+        "url": "https://nakamura196.github.io/tei-chusai-viz/",
+        "applicationCategory": "EducationApplication",
+        "operatingSystem": "Web",
+        "browserRequirements": "Requires JavaScript",
+        "inLanguage": "ja",
+        "isAccessibleForFree": true,
+        "datePublished": "2026-06-03",
+        "screenshot": "https://nakamura196.github.io/tei-chusai-viz/assets/og.png",
+        "keywords": "抽斎年譜, 渋江抽斎, 森鷗外, TEI, デジタルヒューマニティーズ, 可視化, オープンデータ",
+        "description": "『抽斎年譜』TEI/XML（CC BY 4.0）を二次利用し、人物ネットワーク・登場タイムライン・年譜⇔渋江抽斎の対訳を可視化する静的サイト。",
+        "author": { "@id": "https://nakamura196.github.io/tei-chusai-viz/#author" },
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "about": { "@id": "https://nakamura196.github.io/tei-chusai-viz/#dataset" },
+        "isBasedOn": { "@id": "https://nakamura196.github.io/tei-chusai-viz/#dataset" },
+        "sameAs": "https://github.com/nakamura196/tei-chusai-viz"
+      },
+      {
+        "@type": "Dataset",
+        "@id": "https://nakamura196.github.io/tei-chusai-viz/#dataset",
+        "name": "『抽斎年譜』TEI/XML",
+        "description": "森鷗外『渋江抽斎』の素材となった『抽斎年譜』および『渋江抽斎』本文を TEI/XML 化したオープンデータ。",
+        "creator": {
+          "@type": "Organization",
+          "name": "若手図書館員DH勉強会",
+          "url": "https://dhlibrarianstudygroup.github.io/website/"
+        },
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "url": "https://github.com/dhlibrarianstudygroup/tei_chuusainenpu_public",
+        "encodingFormat": "application/tei+xml",
+        "inLanguage": "ja",
+        "keywords": "抽斎年譜, 渋江抽斎, 森鷗外, TEI, 翻刻, デジタルアーカイブ"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://nakamura196.github.io/tei-chusai-viz/#author",
+        "name": "中村覚",
+        "alternateName": "Satoru Nakamura"
+      }
+    ]
   }
   </script>
 
