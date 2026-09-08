@@ -79,137 +79,137 @@
             <handNote xml:id="ougai">森鷗外</handNote> 
       </handNotes></profileDesc>
   </teiHeader>
-  <facsimile sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/manifest">
+  <facsimile sameAs="https://da.dl.itc.u-tokyo.ac.jp/portal/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/manifest">
 	<surface xml:id="ut00" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p1">
 		<label>[1]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6979"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0001.tif"/>
          	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_000"/>
 		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_001"/>
 	</surface>
 	<surface xml:id="ut01" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p2">
 		<label>[2]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6980"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0002.tif"/>
          	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_002"/>
          	<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_003"/>
 	</surface>
 	<surface xml:id="ut02" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p3">
 		<label>[3]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6981"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0003.tif"/>
         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_004"/>
 		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_005"/>
 	</surface>
 	<surface xml:id="ut03" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p4">
 		<label>[4]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6982"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0004.tif"/>
         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_006"/>
 		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_007"/>
 	</surface>
 	<surface xml:id="ut04" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p5">
 		<label>[5]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6983"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0005.tif"/>
         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_008"/>
 		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_009"/>
 	</surface>
 	<surface xml:id="ut05" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p6">
 		<label>[6]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6984"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0006.tif"/>
         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_010"/>
 		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_011"/>
 	</surface>
 	<surface xml:id="ut06" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p7">
 		<label>[7]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6985"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0007.tif"/>
         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_012"/>
 		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_013"/>
 	</surface>
 	<surface xml:id="ut07" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p8">
 		<label>[8]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6986"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0008.tif"/>
         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_014"/>
 		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_015"/>
 	</surface>
 	<surface xml:id="ut08" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p9">
 		<label>[9]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6987"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0009.tif"/>
         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_016"/>
 		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_017"/>
 	</surface>
 	<surface xml:id="ut09" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p10">
 		<label>[10]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6988"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0010.tif"/>
         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_018"/>
 		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_019"/>
 	</surface>
 	<surface xml:id="ut10" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p11">
 		<label>[11]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6989"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0011.tif"/>
         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_020"/>
 		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_021"/>
 	</surface>
 	<surface xml:id="ut11" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p12">
 		<label>[12]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6990"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0012.tif"/>
         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_022"/>
 		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_023"/>
 	</surface>
 	<surface xml:id="ut12" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p13">
 		<label>[13]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6991"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0013.tif"/>
         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_024"/>
 		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_025"/>
 	</surface>
 	<surface xml:id="ut13" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p14">
 		<label>[14]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6992"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0014.tif"/>
         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_026"/>
 		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_027"/>
 	</surface>
 	<surface xml:id="ut14" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p15">
 		<label>[15]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6993"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0015.tif"/>
         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_028"/>
 		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_029"/>
 	</surface>
 	<surface xml:id="ut15" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p16">
 		<label>[16]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6994"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0016.tif"/>
         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_030"/>
 		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_031"/>
 	</surface>
 	<surface xml:id="ut16" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p17">
 		<label>[17]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6995"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0017.tif"/>
         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_032"/>
 		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_033"/>
 	</surface>
 	<surface xml:id="ut17" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p18">
 		<label>[18]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6996"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0018.tif"/>
         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_034"/>
 		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_035"/>
 	</surface>
 	<surface xml:id="ut18" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p19">
 		<label>[19]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6997"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0019.tif"/>
         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_036"/>
 		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_037"/>
 	</surface>
 	<surface xml:id="ut19" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p20">
 		<label>[20]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6998"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0020.tif"/>
         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_038"/>
 		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_039"/>
 	</surface>
 	<surface xml:id="ut20" ulx="0" uly="0" lrx="4256" lry="3308" sameAs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif/60d193c1-d814-42c3-90c0-a5caf5975e1a/canvas/p21">
 		<label>[21]</label>
-		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6999"/>
+		<graphic mimeType="application/json" url="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0021.tif"/>
         	<zone lrx="4256" lry="3308" ulx="2128" uly="0" xml:id="zone_040"/>
 		<zone lrx="2128" lry="3308" ulx="0" uly="0" xml:id="zone_041"/>
 	</surface>
   </facsimile>
   <text>
       <body  style="writing-mode:vertical-rl">
-        <pb n="3" corresp="#zone_005" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6981/0,0,2128,3308/full/0/default.jpg"/>
+        <pb n="3" corresp="#zone_005" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0003.tif/0,0,2128,3308/full/0/default.jpg"/>
         <head>年譜</head>
         <div><head xml:id="note03_01">一歳</head>
         <p style="#m1"><anchor xml:id="cn03_01_s"/><date when="1805-12-28" when-custom="文化2年11月8日">十一月八日</date>、江戸神田辨慶橋に生る<note rend="割注" style="color:red">時に父<persName corresp="#渋江允成">允成</persName>四十二歳。<milestone unit="wbr"/>母<persName corresp="#岩田縫子"><ruby><rb>縫</rb><rt>ヌヒ</rt></ruby>子</persName>三十一歳。</note><anchor xml:id="cn03_01_e"/></p>
@@ -224,7 +224,7 @@
         <p><note place="top" style="color:red" corresp="#note03_02"><persName corresp="#津軽寧親">津軽藩主（寧親）</persName>従来四萬八千石の処、<date when="1805-06-12" when-custom="文化2年5月15日">此年五月十五日</date><del>高直し</del>七万石と為る、所謂御乗出し是れ也。</note></p>
         <p><note place="top" corresp="#note03_03"><anchor xml:id="cn03_02_s"/>抽斎の父<persName corresp="#渋江允成">允成</persName>は幼時毎日<persName corresp="#津軽信明">信明公</persName>の膝下に在りて<anchor xml:id="cn03_02_e"/>其の子<persName corresp="#津軽寧親">寧親公</persName>と嬉戯し、<persName corresp="#渋江抽斎">抽斎</persName>
 	           
-	<pb n="4" corresp="#zone_006" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6982/2128,0,2128,3308/full/0/default.jpg"/>
+	<pb n="4" corresp="#zone_006" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0004.tif/2128,0,2128,3308/full/0/default.jpg"/>
 	<lb/>の子<persName corresp="#渋江保">成善</persName>
 	<lb/>（保）も亦
 <lb/>幼時毎日
@@ -263,7 +263,7 @@
 <head style="#m3"><date when="1808" when-custom="文化5年">文化五年戊辰</date></head>
 <head>四歳</head>
 	
-<pb n="5" corresp="#zone_007" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6982/0,0,2128,3308/full/0/default.jpg"/>
+<pb n="5" corresp="#zone_007" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0004.tif/0,0,2128,3308/full/0/default.jpg"/>
 <note place="top">
 <lb/>コレハ<date>文化五
 <lb/>年</date>也</note>
@@ -299,7 +299,7 @@
 </div>
 <div>	
 	
-	<pb n="6" corresp="#zone_008" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6983/2128,0,2128,3308/full/0/default.jpg"/>
+	<pb n="6" corresp="#zone_008" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0005.tif/2128,0,2128,3308/full/0/default.jpg"/>
         <lb/><p style="color:red;#m10">(<date when="1811-03-08" when-custom="文化8年閏2月14日">閏二月<add place="right">十四日</add></date>、妹生れ、即刻死す、
         <lb/>法号<persName corresp="#曇華水子">曇華水子</persName>)</p>
         <lb/><p style="color:red;#m11">[<persName corresp="#渋江抽斎">抽齋</persName>の兄弟は、此の外
@@ -317,7 +317,7 @@
         <lb/>年の
         <lb/>部に入るべきを、誤て此処へ入れたり</note>
 	
-	<pb n="7" corresp="#zone_009" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6983/0,0,2128,3308/full/0/default.jpg"/>
+	<pb n="7" corresp="#zone_009" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0005.tif/0,0,2128,3308/full/0/default.jpg"/>
         <lb/><p style="color:red;#m2">（一粒金丹は津輕家の秘法にして、強壮劑な
         <lb/>り、藩中、其の傳授を許さるゝもの僅々數名
         <lb/>に過ぎず、三十粒入一包金一歩。十五粒入<add place="left">半包</add>金
@@ -338,7 +338,7 @@
         <lb/>ハ此処に
         <lb/>入るべき也</note>
 	
-	<pb n="8" corresp="#zone_010" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6984/2128,0,2128,3308/full/0/default.jpg"/>
+	<pb n="8" corresp="#zone_010" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0006.tif/2128,0,2128,3308/full/0/default.jpg"/>
         <lb/><p style="#m1"><date when="1815-02-06" when-custom="文化11年12月28日">十二月二十八日</date>、始て<persName corresp="#津軽寧親">藩主(寧親)</persName>へ『御目見』、
         <lb/>始て<persName corresp="#伊沢蘭軒">伊澤蘭軒</persName>の門に入る、</p>
 
@@ -352,7 +352,7 @@
         <lb/>外に老子、素問を愛讀せり、其の外好む所
         <lb/>は古珍本。古武鑑。<note rend="割注">大名の行列を觀るこ<milestone unit="wbr"/>とをも頗る好めり、</note>赤本。
 	
-	<pb n="9" corresp="#zone_011" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6984/0,0,2128,3308/full/0/default.jpg"/>
+	<pb n="9" corresp="#zone_011" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0006.tif/0,0,2128,3308/full/0/default.jpg"/>
         <lb/>菎蒻本。黄表紙。<add place="right">古画。</add><anchor xml:id="cn06_03_s"/>又說文を好ミて<add place="right">後年</add>毎月說文
         <lb/>㑹を開き、<persName corresp="#小島成斎">小島成齋</persName>。<persName corresp="#森立之">森立之</persName>。<persName corresp="#平井東堂">平井東堂</persName>。<persName corresp="#海保竹逕">海保
         <lb/>竹逕</persName>。<persName corresp="#喜多村安斎">喜多村安<del>節</del><add place="right">斎</add></persName>。<persName corresp="#栗本鋤雲">栗本鋤雲</persName>等之に㑹せり、
@@ -366,7 +366,7 @@
         <lb/><head>十一歳</head></div>
         <anchor xml:id="cn06_05_s"/><note style="color:red" corresp="#cn06_01" place="top"><lb/><persName corresp="渋江抽斎">抽斎</persName>又、<lb/>越後<lb/>獅子(<del>角</del><add>覚</add><lb/>兵術) を<lb/>好み、毎日<lb/>中の口玄<lb/>關の敷臺に於<lb/>て舞はし<lb/>め、在宅の<lb/>時ハ、(何等<lb/>用事あり<lb/>とも、必ら<lb/>ずそれを<lb/>打捨て置き、)<lb/>親から出<lb/>て、見<lb/>物したり、</note><anchor xml:id="cn06_05_e"/>
 	
-<pb n="10" corresp="#zone_012" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6985/2128,0,2128,3308/full/0/default.jpg"/>
+<pb n="10" corresp="#zone_012" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0007.tif/2128,0,2128,3308/full/0/default.jpg"/>
          <div><head style="#m3"><date when="1816" when-custom="文化13年">文化十三年丙子</date></head>
       <head>十二歳</head></div>
          <div><head style="#m3"><date when="1817" when-custom="文化14年">文化十四年丁丑</date></head>
@@ -378,7 +378,7 @@
 <div>         <head style="#m3"><date when="1819" when-custom="文政2年">文政二年己卯</date></head>
       <head>十五歳</head>
 	
-	<pb n="11" corresp="#zone_013" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6985/0,0,2128,3308/full/0/default.jpg"/>
+	<pb n="11" corresp="#zone_013" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0007.tif/0,0,2128,3308/full/0/default.jpg"/>
       <p style="color:red;#m10">（<date when="1820-01-09" when-custom="文政2年11月24日">十一月二十四日</date>、姉<persName corresp="#渋江須磨子">須磨<lb/>子</persName><note type="割注">十八<milestone unit="wbr"/>歳</note>幕臣<persName corresp="飯田四郎左衛門良清">飯田四郎左<lb/>衛門良清</persName>に嫁す、）</p></div>
         <div><head style="#m3"><date when="1820" when-custom="文政3年">文政三年庚辰</date></head>
       <head xml:id="note07_02">十六歳</head>
@@ -390,7 +390,7 @@
       <head xml:id="note07_03">十八歳</head>
          <note corresp="#note07_03" place="top" style="color:red"><date when="1822-08-02" when-custom="文政5年6月16日">六月十六<lb/>日</date>、<persName corresp="#津軽寧親">藩主</persName>大広間<lb/>着坐を命<lb/>せらる</note>
 	      
-<pb n="12" corresp="#zone_014" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6986/2128,0,2128,3308/full/0/default.jpg"/>
+<pb n="12" corresp="#zone_014" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0008.tif/2128,0,2128,3308/full/0/default.jpg"/>
 <p>
 <lb/><anchor xml:id="cn08_01_s"/><date when="1822-04-19" when-custom="文政5年2月28日">二月二十八日</date>、<note place="right" style="color:black" hand="#ougai">御番見習、表医者を仰付、即日見習、日記</note>勤務命ぜられる、
 <lb/><note place="right" style="color:black" hand="#ougai"><date when="1822-04-22" when-custom="文政5年3月1日">三月朔</date>本番入（日記）<anchor xml:id="cn08_01_e"/></note>
@@ -409,7 +409,7 @@
 </div>
 <div><head style="#m3"><date when="1824" when-custom="文政7年">文政七年甲申</date></head>
 	      
-<pb n="13" corresp="#zone_015" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6986/0,0,2128,3308/full/0/default.jpg"/>
+<pb n="13" corresp="#zone_015" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0008.tif/0,0,2128,3308/full/0/default.jpg"/>
 <head>二十歳</head>
 <p xml:id="note13_01">
 <lb/><note hand="#ougai"><anchor xml:id="cn08_05_s"/><date when="1824-07-07" when-custom="文政7年6月11日">六月十一日</date><persName corresp="#尾島定子">岩田氏百合</persName>来
@@ -446,7 +446,7 @@
 <note hand="#ougai"><date when="1826-07-14" when-custom="文政9年7月14日">七月十四日</date>忌明日記</note>
 <note corresp="#note13_03" style="color:red;#m9">前（<anchor xml:id="cn08_06_s"/><date when="1826-06-28" when-custom="文政9年6月28日">六月二十八日</date>、<persName corresp="#渋江須磨子">姉飯田須
 
-<pb n="14" corresp="#zone_016" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6987/2128,0,2128,3308/full/0/default.jpg"/>
+<pb n="14" corresp="#zone_016" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0009.tif/2128,0,2128,3308/full/0/default.jpg"/>
 磨子</persName>死す。<note rend="割注">享年二<milestone unit="wbr"/>十五</note>）<anchor xml:id="cn08_06_e"/></note></p></div>
 <div><head style="#m3"><date when="1827" when-custom="文政10年">文政十年丁亥</date></head>
 <head>二十三歳</head></div>
@@ -459,7 +459,7 @@
 <p><anchor xml:id="cn09_01_s"/><note corresp="#note14_01" style="color:red;#m10"><date when="1829-06-14" when-custom="文政12年6月14日">六月十四日</date>、母<persName corresp="#岩田縫子">壽松</persName>死す。
 <lb/><note style="color:red" rend="割注">享年五<milestone unit="wbr"/>十五）</note></note><anchor xml:id="cn09_01_e"/></p>
 
-<pb n="15" corresp="#zone_017" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6987/0,0,2128,3308/full/0/default.jpg"/>
+<pb n="15" corresp="#zone_017" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0009.tif/0,0,2128,3308/full/0/default.jpg"/>
 <p><date when="1829-11-11" when-custom="文政12年11月11日">十一月十一日</date>、妻<persName corresp="#尾島定">尾島氏<note rend="割注">定子</note></persName>離縁<note place="right"><add hand="#ougai"><persName corresp="岩田百合">岩田氏百合</persName>カ</add></note>
 <lb/><date when="1829-12-15" when-custom="文政12年12月15日">十二月十五日</date><note place="right" hand="#ougai"><anchor xml:id="cn09_02_s"/><date when="1829-11-12" when-custom="文政12年11月12日">十一月十二日</date>（日記）</note>、同藩士<note rend="割注">留守居役</note>比良野文藏の女<del>徳</del><persName corresp="#比良野威能"><ruby><rb>威</rb><rt>い</rt></ruby>
 <lb/><ruby><rb>能</rb><rt>の</rt></ruby>子</persName><note rend="割注">二十四歳</note>を娶る。<anchor xml:id="cn09_02_e"/></p></div>
@@ -472,7 +472,7 @@
 <lb/><note place="right">六月</note>更らに岩城伊豫守夫人<note rend="割注">津軽</note></p>
 <note corresp="#note15_01" place="top" style="color:red"><anchor xml:id="cn09_03_s"/>此の破鏡の原因ハ<persName corresp="#渋江保">保</persName>之を知らず、只<persName corresp="#山内五百">母</persName>より聞く所に拠れバ、初め抽齋の父<persName corresp="#渋江允成">允成</persName>が、妻ハ貧苦の中に育ちし勤険主義の者に限るとの意見より<persName corresp="#尾島定">定子</persName>を迎へたるなれども、それが、どうも豫想のやうに行かなんだ云々、<anchor xml:id="cn09_03_e"/></note>
 
-<pb n="16" corresp="#zone_018" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6988/2128,0,2128,3308/full/0/default.jpg"/>
+<pb n="16" corresp="#zone_018" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0010.tif/2128,0,2128,3308/full/0/default.jpg"/>
 <note style="color:red;#9em">
    <lb/><note rend="割注">家より婦ぎ<milestone unit="wbr"/>たる人也</note>并に<note place="right">八月</note><persName corresp="#欽姫">欽姫</persName><note rend="割注">津軽<milestone unit="wbr"/>家令</note>
    <lb/>嬢へも出仕を命ぜらる、）
@@ -494,7 +494,7 @@
 <head style="#m3"><date when="1833" when-custom="天保4年">天保四年癸巳</date></head>
 <head>二十九歳</head>
 
-<pb n="17" corresp="#zone_019" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6988/0,0,2128,3308/full/0/default.jpg"/>
+<pb n="17" corresp="#zone_019" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0010.tif/0,0,2128,3308/full/0/default.jpg"/>
 <p xml:id="note10_01" style="#m1">
     <lb/><anchor xml:id="cn10_05_s"/><date when="1833-05-24" when-custom="天保4年4月6日">四月六日</date>、<persName corresp="#津軽信順">君公</persName>に扈従して弘前に行く、<note rend="割注"><date when="1834-12-15" when-custom="天保5年11月15日">翌年<del rend="見せ消ち">三</del><add style="color:red" place="right">十一</add><milestone unit="wbr"/>月<add style="color:red" place="left">十五日</add></date>歸府<del rend="見せ消ち">せし</del></note><anchor xml:id="cn10_05_e"/>
    <lb/><del rend="見せ消ち"><note rend="割注">なら<milestone unit="wbr"/>ん、</note></del><add style="color:red" place="below">す、</add>
@@ -549,7 +549,7 @@
 <lb/>埼玉縣）の官吏と為り
 <lb/>同六年、工部省鑛山寮
 
-<pb n="18" corresp="#zone_020" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6989/2128,0,2128,3308/full/0/default.jpg"/>            
+<pb n="18" corresp="#zone_020" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0011.tif/2128,0,2128,3308/full/0/default.jpg"/>            
             <lb/>に轉任し、<date when="1879" when-custom="明治12年">同十二年</date>、<add place="right">また</add>開
             <lb/>拓使（後札幌縣）に轉じ、
             <lb/><date when="1883-12-02" when-custom="明治16年12月2日">同十六年、十二月二日</date>
@@ -581,7 +581,7 @@
             </p>
             <anchor xml:id="cn11_01_e"/>
             
-        <pb n="19" corresp="#zone_021" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6989/0,0,2128,3308/full/0/default.jpg"/>
+        <pb n="19" corresp="#zone_021" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0011.tif/0,0,2128,3308/full/0/default.jpg"/>
             <p style="#m2">
            <anchor xml:id="cn11_02_s"/>
                 <lb/>（是迄、<persName corresp="#渋江抽斎">抽齋</persName>ハ下戸にて、酒一滴をも口に執ら
@@ -599,7 +599,7 @@
             <note rend="割注">子十四人。孫<milestone unit="wbr"/>十四人。</note>あれども、次男<persName corresp="#渋江優善">優善</persName>を除くの
             <lb/>外、一人も煙草を用ゆる者なし、亦一奇と<anchor xml:id="cn11_03_e"/>
 
-<pb n="20" corresp="#zone_022" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6990/2128,0,2128,3308/full/0/default.jpg"/>
+<pb n="20" corresp="#zone_022" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0012.tif/2128,0,2128,3308/full/0/default.jpg"/>
 <anchor xml:id="cn12_01_s"/><lb/>いふべし、<note type="割注">勿論其の配遇ハ皆<milestone unit="wbr"/>煙草を用ゆれども、</note><anchor xml:id="cn12_01_e"/>
 <lb/><anchor xml:id="cn12_02_s"/>
 <persName corresp="#渋江抽斎">抽斎</persName>又此の時、藩地に在りて、防寒の為め
@@ -614,7 +614,7 @@
    <anchor xml:id="cn12_04_s"/><p style="#m1">此の年、弘前に在り、</p></div><anchor xml:id="cn12_04_e"/>
 <div><head style="#m3"><date when="1839" when-custom="天保10年">天保十年己亥</date></head>
 
-<pb n="21" corresp="#zone_023" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6990/0,0,2128,3308/full/0/default.jpg"/>
+<pb n="21" corresp="#zone_023" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0012.tif/0,0,2128,3308/full/0/default.jpg"/>
 <head>三十五歳</head>
 <p style="#m1">
   <anchor xml:id="cn12_05_s"/> <lb/>此の年<note type="割注">月日<milestone unit="wbr"/>未詳</note><persName corresp="#津軽信順">君公</persName>に扈従して江戸に帰る、<anchor xml:id="cn12_05_e"/><anchor xml:id="cn12_06_s"/>間も
@@ -629,7 +629,7 @@
 <head>三十七歳</head>
 <note style="color:red;#m10"><date when="1841-02-26" when-custom="天保12年閏正月26日">閏正月二十六日、</date><persName corresp="渋江好子"><ruby><rb>好</rb><rt>よし</rt></ruby>子</persName>生
 
-<pb n="22" corresp="#zone_024" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6991/2128,0,2128,3308/full/0/default.jpg"/>
+<pb n="22" corresp="#zone_024" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0013.tif/2128,0,2128,3308/full/0/default.jpg"/>
 れ<date when="1841-03-25" when-custom="天保12年2月3日">二月三日</date>死す、</note>
 <head style="#m3"><date when="1842" when-custom="天保13年">天保十三年壬寅</date></head>
 <head>三十八歳</head>
@@ -641,7 +641,7 @@
 <head>四十歳</head>
 <note place="top" style="color:red"><date when="1845-01-23" when-custom="弘化1年12月16日">十二月十六日</date><lb/>日、藩主<lb/>叙四品、</note>
 	
-<pb n="23" corresp="#zone_025" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6991/0,0,2128,3308/full/0/default.jpg"/>
+<pb n="23" corresp="#zone_025" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0013.tif/0,0,2128,3308/full/0/default.jpg"/>
 <p><note>㊁</note><anchor xml:id="cn13_01_s"/><date when="1844-04-29" when-custom="弘化1年3月12日">三月十二日</date>医学館講師たるべき台命ありた<lb/>る旨、<persName corresp="#土井利位">土井大炊頭</persName>より達せらる、<anchor xml:id="cn13_01_e"/></p>
 <p><note>㊂</note><anchor xml:id="cn13_02_s"/><date when="1844-06-14" when-custom="弘化1年4月29日">四月二十九日</date>、自今年始、八朔、五節句、月並御礼<lb/>御城<note type="割注">江戸<milestone unit="wbr"/>城</note>へ罷出べき旨、命ぜらる、<anchor xml:id="cn13_02_e"/></p>
 <p><note>㊀</note><anchor xml:id="cn13_03_s"/><date when="1844-04-08" when-custom="弘化1年2月21日">二月二十一日</date>、妻<persName corresp="#岡西徳子">徳子</persName>死す、</p><note type="割注">享年三<milestone unit="wbr"/>十五<anchor xml:id="cn13_03_e"/></note>
@@ -651,7 +651,7 @@
 <note style="color:red #m10"><date when="1845-02-02" when-custom="弘化2年12月26日">十二月二十六日</date>、長女<persName corresp="#渋江純子"><ruby><rb>純</rb><rt>いと</rt></ruby>子</persName>、幕臣<persName corresp="馬場玄玖">馬場玄玖</persName>に嫁す、
 <lb/><note type="割注">十四<milestone unit="wbr"/>歳</note></note></div>   
 
-<pb n="24" corresp="#zone_026" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6992/2128,0,2128,3308/full/0/default.jpg"/>
+<pb n="24" corresp="#zone_026" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0014.tif/2128,0,2128,3308/full/0/default.jpg"/>
 <div><head style="#3m"><date when="1845" when-custom="弘化2年">弘化二年乙巳</date></head></div>
 <div><head>四十一歳</head></div>
 <div><p xml:id="note24_01">
@@ -673,7 +673,7 @@
 <div><head style="#m3"><date when="1847" when-custom="弘化4年">弘化四年丁未</date></head></div>
 <div><head>四十三歳</head></div>
 
-<pb n="25" corresp="#zone_027" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6992/0,0,2128,3308/full/0/default.jpg"/>
+<pb n="25" corresp="#zone_027" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0014.tif/0,0,2128,3308/full/0/default.jpg"/>
 <div><p xml:id="note25_01">
 <lb/><date when="1848-01-18" when-custom="弘化4年12月13日">十二月十三日</date>、公儀
 <lb/>より銀五枚拝領
@@ -694,7 +694,7 @@
 <div><head style="#m3"><date when="1849" when-custom="嘉永2年">嘉永二年巳酉</date></head>
 <head>四十五歳</head>
 	
-<pb n="26" corresp="#zone_028" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6993/2128,0,2128,3308/full/0/default.jpg"/>
+<pb n="26" corresp="#zone_028" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0015.tif/2128,0,2128,3308/full/0/default.jpg"/>
 <p style="#m1"><lb/><anchor xml:id="cn15_01_s"/><date when="1849-03-30" when-custom="嘉永2年3月7日">三月七日</date>、御用召に付き、登城。年來学業出精致
 <lb/>候に付き、御序の節、御目見可被仰付旨、於躑躅
 <lb/>之間、御老中<persName corresp="#牧野忠雅">牧野備前守</persName>殿より口達あり、
@@ -709,7 +709,7 @@
 <head>四十六歳</head>
 <note place="top" style="color:red"><date when="1851-01-17" when-custom="嘉永3年12月16日">十二月十六日</date>、藩主任侍従。</note>
 
-<pb n="27" corresp="#zone_029" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6993/0,0,2128,3308/full/0/default.jpg"/>
+<pb n="27" corresp="#zone_029" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0015.tif/0,0,2128,3308/full/0/default.jpg"/>
 <p style="#m1"><anchor xml:id="cn15_02_s"/><date when="1850-04-22" when-custom="嘉永3年3月11日">三月十一日</date>、学業出静の廉を以て、去春公辺御
 <lb/>目見被仰付候に付き、自今十五人扶持被下置、
 <lb/>（幕府より也、津軽藩の知行ハ従前の通り。）</p>
@@ -726,7 +726,7 @@
 <lb/>二 <anchor xml:id="cn15_05_s"/><date when="1851-03-17" when-custom="嘉永4年2月15日">二月十五日</date>、<persName corresp="#渋江癸巳子">癸巳子</persName>死す、<note style="color:red" place="bottom" corresp="#note15_01">是れ皆天然痘也</note></note><anchor xml:id="cn15_05_e"/>
 <anchor xml:id="cn15_06_s"/><note place="top">従來邸宅ハ神田お玉が池に在りしが、<date when="1851" when-custom="嘉永4年">此年</date>本所御臺所町へ移り、お玉ヶ池を別邸とす。</note><anchor xml:id="cn15_06_e"/></div>
 
-<pb n="28" corresp="#zone_030" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6994/2128,0,2128,3308/full/0/default.jpg"/>
+<pb n="28" corresp="#zone_030" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0016.tif/2128,0,2128,3308/full/0/default.jpg"/>
 <div><note style="color:red;#m10" rend="割注">三<milestone unit="wbr"/>歳</note>
 <p><anchor xml:id="cn16_01_s"/><date when="1851-07-10" when-custom="嘉永4年6月12日">六月十二日</date>、次子<persName corresp="#渋江優善">優善</persName><persName corresp="#矢鳥玄碩">矢
 <lb/>鳥玄碩</persName>の末期養子とな
@@ -768,7 +768,7 @@
 </note>
 </div>
 
-<pb n="29" corresp="#zone_031" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6994/0,0,2128,3308/full/0/default.jpg"/>
+<pb n="29" corresp="#zone_031" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0016.tif/0,0,2128,3308/full/0/default.jpg"/>
 <div>
 <head style="#m3"><date when="1853" when-custom="嘉永6年">嘉永六年癸丑</date></head>
 <head>四十九歳</head>
@@ -808,7 +808,7 @@
 <lb/>せしならん
 </note>
 
-<pb n="30" corresp="#zone_032" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6995/2128,0,2128,3308/full/0/default.jpg"/>
+<pb n="30" corresp="#zone_032" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0017.tif/2128,0,2128,3308/full/0/default.jpg"/>
             <p style="#m1"><lb/><anchor xml:id="cn17_01_s"/><date when="1855-02-12" when-custom="安政1年12月26日">十二月二十六日</date>、於醫学舘、講書年來出精致候
             <lb/>に付き、五人扶持被下置候旨、公辺より被仰付、</p>
             <p style="#m2"><lb/>（先年の十五人扶持ハ終身の扶持にて、此の
@@ -828,7 +828,7 @@
                 <lb/>ることとし、<anchor xml:id="cn17_03_e"/><anchor xml:id="cn17_04_s"/>又藩侯一家、并に藩士江戸定府の
                 <lb/>もの悉く國勝手に為さしめんとせり、<anchor xml:id="cn17_04_e"/>委し
 
-        <pb n="31" corresp="#zone_033" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6995/0,0,2128,3308/full/0/default.jpg"/>
+        <pb n="31" corresp="#zone_033" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0017.tif/0,0,2128,3308/full/0/default.jpg"/>
                 <lb/>くハ別冊に載す、）
             </p>           
             <p style="#m5">
@@ -858,7 +858,7 @@
                 <lb/>五郎君</persName>、
                 <lb/>藩主の聟養子と為る、（十
 
-<pb n="32" corresp="#zone_034" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6996/2128,0,2128,3308/full/0/default.jpg"/>
+<pb n="32" corresp="#zone_034" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0018.tif/2128,0,2128,3308/full/0/default.jpg"/>
 <lb/>七歳)
 <lb/>今の正二位伯
 <lb/>爵
@@ -877,7 +877,7 @@
    <lb/>谷中感応寺に葬る
    <lb/>(遺命して、<persName corresp="#渋江保">成善</persName>を<persName corresp="#海保漁村">海保漁村</persName>に学はしめ、且つ
 	   
-<pb n="33" corresp="#zone_035" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6996/0,0,2128,3308/full/0/default.jpg"/>
+<pb n="33" corresp="#zone_035" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0018.tif/0,0,2128,3308/full/0/default.jpg"/>
    <lb/><persName corresp="小島成斎">小島成斎</persName>に就て老子を。又<persName corresp="多紀安琢">多紀養春院</persName>に就
    <lb/>て素問を研究せしめんとす、)〔<persName corresp="#渋江保">成善</persName>、万延元年
    <lb/>庚申、<persName corresp="#海保漁村">海保</persName>、<persName corresp="小島成斎">小島</persName>の門に入り、慶応元年乙丑、<persName corresp="多紀安琢">多
@@ -890,7 +890,7 @@
    <lb/>聚」を藩主へ献納することと為し、多年毎月出版
    <lb/>出来毎に五冊ヅ、献納したり、抽斎没後も猶
 	   
-<pb n="34" corresp="#zone_036" facs="https://iiif.dl.itc.u-tokyo.ac.jp/repo/iiif-img/6997/2128,0,2128,3308/full/0/default.jpg"/>
+<pb n="34" corresp="#zone_036" facs="https://iiif.dl.itc.u-tokyo.ac.jp/iiif/ogai/H20_511/0019.tif/2128,0,2128,3308/full/0/default.jpg"/>
 <lb/>引續き献納し來りしが<date when="1862" when-custom="文久2年">文久二年壬戌</date>全く献
 <lb/>納申終りしに付き、<date when="1862-09-08" when-custom="文久2年8月15日">同年八月十五日</date>、嗣子<persName corresp="#渋江保">成善</persName>
 <lb/>藩の重臣より左の<add place="left">如く</add>申渡されたり</p>
