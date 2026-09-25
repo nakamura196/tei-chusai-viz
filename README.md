@@ -2,6 +2,8 @@
 
 [若手図書館員DH勉強会『抽斎年譜』TEI/XML](https://github.com/dhlibrarianstudygroup/tei_chuusainenpu_public)（CC BY 4.0）の **二次利用例** です。同じ TEI/XML を別の角度から可視化し、オープンデータが再利用される様子をそのまま示すことを目的にしています。
 
+公開 URL: <https://chusai.ldas.jp/>（旧 `nakamura196.github.io/tei-chusai-viz/` は同じパスへ転送されます）
+
 公式ビューワ（本文・画像・人物カード等）: <https://chusaiweb-murata.netlify.app/>
 
 ## 3 つのビュー
@@ -34,6 +36,17 @@ python3 -m http.server 8000
 ## 公開（GitHub Pages）
 
 リポジトリの Settings → Pages → Build and deployment で **Deploy from a branch** を選び、`main` / `(root)` を指定すれば公開されます（追加のワークフロー不要）。
+
+独自ドメイン `chusai.ldas.jp` は直下の `CNAME` ファイルで指定しています（DNS は Cloudflare の CNAME → `nakamura196.github.io`、プロキシなし）。ページ内の参照はすべて相対パスで書いているので、サブパス配信でもホスト直下でも同じに動きます。
+
+## テスト
+
+```sh
+npm test          # 公開 URL の固定 + 参照切れ・/ 始まりの参照・旧ホスト文字列の検査 (CI でも実行)
+npm run test:live # 配布後に本番と旧 URL の転送を HTTP で確認
+```
+
+依存パッケージはありません（Node.js 20 以上）。OGP 画像 (`assets/og*.png`) は同名の SVG から `rsvg-convert -w 1200 -h 630 -b white assets/og.svg -o assets/og.png` で作っています。
 
 ## データに関する注記
 

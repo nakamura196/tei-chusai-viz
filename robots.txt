@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nakamura196.github.io/tei-chusai-viz/sitemap.xml
+Sitemap: https://chusai.ldas.jp/sitemap.xml
